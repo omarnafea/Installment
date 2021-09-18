@@ -13,7 +13,7 @@ $params =    array(
     ':user_id'           => $_POST["user_id"],
 );
 if(trim($_POST['password'])  !== ""){
-    $pass=',password = :password,';
+    $pass=',password = :password';
     $params[':password'] = sha1($_POST["password"]);
 }
 $statement = $con->prepare(

@@ -84,7 +84,7 @@ if(isset($_GET['user_id'])){
                 </select>
             </div>
 
-            <input type="hidden" name="user_id" value="<?=$user_id?>" id="edit_user_id" />
+            <input type="hidden" name="user_id" value="<?=$user_id?>" id="user_id" />
             <div class="text-center">
                 <input type="submit" name="action"  class="btn btn-success submit-btn"  value="Save" />
             </div>

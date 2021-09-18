@@ -19,7 +19,9 @@ $(document).on('submit', '#user_add_form', function(event){
 
     let ajax_url = "ajax/add_user.php";
 
-    if($("#user_id") !== '-1'){
+   console.log('user id  : ' , $("#user_id").val());
+
+    if($("#user_id").val() !== '-1'){
         ajax_url = "ajax/update_user.php";
     }
     $.ajax({
