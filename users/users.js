@@ -1,8 +1,38 @@
 
-$("document").ready(function () {
-    $("#users_table").DataTable();
+ $("#users_table").DataTable(
+     
+ );
 
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

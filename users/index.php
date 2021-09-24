@@ -1,16 +1,28 @@
 <?php
-
 include('../db_connect.php');
-$output = "";
+
 $query = "SELECT users.* , privileges.privilege as privilege 
   FROM users 
 INNER JOIN privileges on privileges.id = users.privilege_id; "; // db query
-
 $statement = $con->prepare($query);  // prepare query
 $statement->execute();
-$users = $statement->fetchAll();
+$users = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+/*
+echo "<pre>";
+print_r($users);
+echo "</pre>";
+*/
+/*
+foreach($users as $user){
+   echo $user['name']   . " <br>";
+   echo $user['email']   . " <br>";
+
+}*/
+//die;
 
 
+//die;
 
 ?>
 <html>
@@ -20,15 +32,11 @@ $users = $statement->fetchAll();
     <?php include "../include/header.php";?>
     <link rel="stylesheet" href="users.css">
 </head>
-
 <body>
 <?php include "../include/navbar.php"?>
-
-
 <div class="container-fluid pt-5">
     <h2 class="text-primary text-center mt-3">Users</h2>
-
-    <a href="add_user.php" class="btn btn-primary my-1">Add New User</a>
+    <a href="add_user.php" class="btn btn-primary mb-2">Add New User</a>
     <table id="users_table" class="table table-bordered table-striped">
         <thead>
         <tr>
@@ -41,25 +49,22 @@ $users = $statement->fetchAll();
         </thead>
         <tbody>
           <?php
-
           foreach($users as $user)
           { ?>
                <tr>
+
                <td><?=$user['name']?></td>
                <td><?=$user['user_name']?></td>
                <td><?=$user['email']?></td>
                <td><?=$user['privilege']?></td>
                <td>
-                   <a  href="add_user.php?user_id=<?=$user['id']?>" name="update" class="btn btn-primary update">Edit</a>
+                   <a href="add_user.php?user_id=<?=$user['id']?>"  class="btn btn-primary">Edit</a>
                </td>
               </tr>
           <?php }?>
-
         </tbody>
     </table>
-
 </div>
 <script src="users.js"> </script>
-
 </body>
 </html>
