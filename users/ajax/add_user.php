@@ -2,6 +2,10 @@
 
 include('../../db_connect.php');
 
+
+//print_r($_POST);die;
+
+
 $statement = $con->prepare("
    INSERT INTO users (name, email,user_name,password,privilege_id) 
    VALUES (:name, :email, :user_name,:password,:privilege_id )");

@@ -11,6 +11,10 @@
             <a class="stretched-link text-decoration-none" href="../users"> <i class="fas fa-users"></i> Manage users</a>
         </li>
 
+        <li class="list-group-item pagelink">
+            <a class="stretched-link text-decoration-none" href="../customers/index.php"> <i class="fas fa-users"></i> Manage customers</a>
+        </li>
+
     </ul>
 </div>
 

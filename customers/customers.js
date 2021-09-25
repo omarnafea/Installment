@@ -1,29 +1,18 @@
-
- $("#users_table").DataTable(
-     
- );
+$("#customers_table").dataTable();
 
 
-$(document).on('submit', '#user_add_form', function(event){
+
+
+$(document).on('submit', '#add_customer_form', function(event){
     event.preventDefault();
 
-    //from validation
-    if($("#privilege_id").val() === '-1'){
-        Swal.fire({
-            icon: 'warning',
-            title: '',
-            text: 'Please select a privilege'
-        });
-        return false;
-    }
+   
+    let ajax_url = "ajax/add_customer.php";
 
-    let ajax_url = "ajax/add_user.php";
 
-   console.log('user id  : ' , $("#user_id").val());
-
-    if($("#user_id").val() !== '-1'){
+   /* if($("#cust").val() !== '-1'){
         ajax_url = "ajax/update_user.php";
-    }
+    }*/
     $.ajax({
         url:ajax_url,
         method:'POST',
