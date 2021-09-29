@@ -12,7 +12,13 @@ $(document).on('submit', '#add_customer_form', function(event){
 
    /* if($("#cust").val() !== '-1'){
         ajax_url = "ajax/update_user.php";
-    }*/
+    }
+    {
+        "name":"omar",
+        "age": 24
+    }
+    
+    */
     $.ajax({
         url:ajax_url,
         method:'POST',
@@ -30,7 +36,12 @@ $(document).on('submit', '#add_customer_form', function(event){
                }).then(function () {
                    window.location.href = "index.php";
                });
-
+           }else{
+            Swal.fire({
+                icon: 'warning',
+                title: '',
+                text: data.message
+            })
            }
         }
     });
