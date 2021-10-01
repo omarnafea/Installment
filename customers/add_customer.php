@@ -5,6 +5,28 @@ $mobile = "";
 $email = "";
 
 $update_mode = false; //add customer (not Update)
+
+include '../db_connect.php';
+if(isset($_GET['customer_id'])){
+$update_mode = true;
+$customer_id = $_GET['customer_id'];
+
+$statement = $con->prepare("select * from customers where customer_id = ? ");  // prepare query
+$statement->execute([$customer_id]);
+$customer = $statement->fetch(PDO::FETCH_ASSOC);
+
+$name = $customer["name"];
+$mobile =$customer["mobile"];
+$email =$customer["email"];
+/*
+echo '<pre>';
+print_r($customer);
+echo '</pre>';die;
+*/
+
+
+}
+
 ?>
 <html>
 <head>
@@ -20,7 +42,16 @@ $update_mode = false; //add customer (not Update)
 <div class="container-fluid pt-5">
 
 <div class="main-form">
-        <h2 class="text-primary text-center mt-3">Add New Customer</h2>
+
+
+         <?php 
+                 if($update_mode == false){
+                    echo '<h2 class="text-primary text-center mt-3">Add New Customer</h2>';
+                 }else{
+                    echo '<h2 class="text-primary text-center mt-3">Update Customer</h2>';
+                 }
+         ?>
+       
 
         <form id="add_customer_form">
              
@@ -43,7 +74,7 @@ $update_mode = false; //add customer (not Update)
             <input type="submit" class="btn btn-primary submit-btn" value="Save">
         </div>
 
-        <input type="text" name="customer_id" value="<?=$customer_id?>">
+        <input type="hidden"  id="customer_id" name="customer_id" value="<?=$customer_id?>">
 
         </form>
 

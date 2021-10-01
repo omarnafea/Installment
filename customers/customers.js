@@ -9,16 +9,9 @@ $(document).on('submit', '#add_customer_form', function(event){
    
     let ajax_url = "ajax/add_customer.php";
 
-
-   /* if($("#cust").val() !== '-1'){
-        ajax_url = "ajax/update_user.php";
+    if($("#customer_id") !== '-1'){
+        ajax_url = "ajax/update_customer.php"
     }
-    {
-        "name":"omar",
-        "age": 24
-    }
-    
-    */
     $.ajax({
         url:ajax_url,
         method:'POST',
