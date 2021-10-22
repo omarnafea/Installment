@@ -35,6 +35,9 @@ foreach($users as $user){
 <body>
 <?php include "../include/navbar.php"?>
 <div class="container-fluid pt-5">
+     <?php
+    include "../include/dashboard.php";
+    ?>
     <h2 class="text-primary text-center mt-3">Users</h2>
     <a href="add_user.php" class="btn btn-primary mb-2">Add New User</a>
     <table id="users_table" class="table table-bordered table-striped">

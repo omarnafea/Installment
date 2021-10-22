@@ -34,6 +34,10 @@ die;*/
 <body>
 <?php include "../include/navbar.php"?>
 <div class="container-fluid pt-5">
+
+     <?php
+       include "../include/dashboard.php";
+      ?>
     <h2 class="text-primary text-center mt-3">Customers</h2>
     <a href="add_customer.php" class="btn btn-primary mb-2">Add New Customer</a>
     <table id="customers_table" class="table table-bordered table-striped">

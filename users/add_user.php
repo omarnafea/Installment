@@ -61,7 +61,9 @@ if(isset($_GET['user_id'])){
 <?php include "../include/navbar.php"?>
 
 <div class="container-fluid pt-5">
-
+    <?php
+    include "../include/dashboard.php";
+    ?>
     <div class="main-form">
         <h2 class="text-primary text-center mt-3">Add New User</h2>
 
