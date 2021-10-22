@@ -1,4 +1,7 @@
+<?php 
+include "auth.php";
 
+?>
 
 
 <div class="admin-dashboard">
@@ -7,17 +10,24 @@
             <a class="stretched-link text-decoration-none" href="../dashboard"><i class="fas fa-list"></i> DASHBOARD</a>
         </li>
 
-        <li class="list-group-item pagelink">
-            <a class="stretched-link text-decoration-none" href="../users"> <i class="fas fa-users"></i> Manage users</a>
-        </li>
+        <?php 
+             if(isAdmin()){?>
+               <li class="list-group-item pagelink">
+                 <a class="stretched-link text-decoration-none" href="../users"> <i class="fas fa-users"></i> Manage users</a>
+              </li>
+             <?php } ?>
+       
 
         <li class="list-group-item pagelink">
             <a class="stretched-link text-decoration-none" href="../customers/index.php"> <i class="fas fa-users"></i> Manage customers</a>
         </li>
-        <li class="list-group-item pagelink">
-            <a class="stretched-link text-decoration-none" href="../categories"> <i class="fas fa-list"></i> Manage Categories</a>
-        </li>
 
+        <?php 
+             if(isAdmin()){?>
+                <li class="list-group-item pagelink">
+                    <a class="stretched-link text-decoration-none" href="../categories"> <i class="fas fa-list"></i> Manage Categories</a>
+                </li>
+        <?php } ?>
 
     </ul>
 </div>
