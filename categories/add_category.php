@@ -54,7 +54,7 @@ echo '</pre>';die;
              
         <div class="form-group">
             <label>Name</label>
-            <input  type="text" value="<?=$name?>" class="form-control" name="category" id="name" placeholder="Enter category name" required >
+            <input  type="text" value="<?=$name?>" class="form-control" name="category_name" id="name" placeholder="Enter category name" required >
         </div>
 
         
