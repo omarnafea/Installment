@@ -19,12 +19,6 @@ $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
 print_r($categories);
 die;*/
 
-
-
-
-
-
-
 ?>
 <html>
 <head>
@@ -55,7 +49,7 @@ die;*/
              
         <div class="form-group">
             <label>Product Name</label>
-            <input  type="text" value="<?=$product_name?>" class="form-control" name="name" id="name" placeholder="Enter product name" required >
+            <input  type="text" value="<?=$product_name?>" class="form-control" name="product_name" id="name" placeholder="Enter product name" required >
         </div>
 
         <div class="form-group">
@@ -81,8 +75,6 @@ die;*/
             <input  type="file"  class="form-control" name="image" id="image"  required accept=".jpg , .png , .jpeg" >
         </div>
         
-
-
         <div class="text-center">
             <input type="submit" class="btn btn-primary submit-btn" value="Save">
         </div>

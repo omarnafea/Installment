@@ -5,11 +5,18 @@ include "../../db_connect.php";
 
 
 
-print_r($_POST);die;
+$image = upload_image($_FILES['image']);
+
+if($image['success'] !== true){
+    die(json_encode($image));
+}
+
+$image_name = $image['image'];
+
 
 //check if this email elready used
-
-$query = "SELECT * FROM customers WHERE email = ?"; // db query
+/*
+$query = "SELECT * FROM products WHERE email = ?"; // db query
 $statement = $con->prepare($query);  // prepare query
 $statement->execute([$_POST['email']]);
 $check_customer = $statement->fetch(PDO::FETCH_ASSOC);
@@ -18,20 +25,66 @@ $check_customer = $statement->fetch(PDO::FETCH_ASSOC);
 if(is_array($check_customer)){
     die(json_encode(['success'=>false , 'message'=>'This email elready exist']));
 }
-
+*/
 
 
 
 $params = [
-    ":name"     => $_POST['name'],
-    ":email"    => $_POST['email'],
-    ":mobile"   => $_POST['mobile'],
-    ":password" => sha1($_POST['mobile'])
+    ":product_name"   => $_POST['product_name'],
+    ":cat_id"         => $_POST['category_id'],
+    ":quantity"       => $_POST['quantity'],
+    ":image"          => $image_name
 ];
 
-$statment = $con->prepare("INSERT INTO customers (name , email , mobile , password) 
-                VALUES (:name , :email , :mobile , :password)");
+$statment = $con->prepare("INSERT INTO products (product_name , cat_id , quantity , image) 
+                VALUES (:product_name , :cat_id , :quantity , :image)");
 $statment->execute($params);
 
-die(json_encode(['success'=>true , 'message'=>'Customer added successfully']));
+die(json_encode(['success'=>true , 'message'=>'Product added successfully']));
+
+
+
+function upload_image($file){
+    $output=array();
+    $allowed_extension=array('jpeg','jpg','png');
+
+    $imageName=$file['name'];
+    $imageSize=$file['size'];
+    $imageTempName=$file['tmp_name'];
+    $imageType=$file['type'];
+
+    $image_extension=explode('.',$imageName );
+   
+    $image_extension=strtolower(end($image_extension));  // the capital extension may be make an error
+
+   
+
+    if(!empty($imageName) &&  ! in_array($image_extension, $allowed_extension)){
+        $output['success']=false;
+        $output['error']='This extension Is Not Allowed';
+        return  $output;
+    }
+
+
+    if(!empty($imageName) && $imageSize > 4194304){
+        $output['success']=false;
+        $output['error']='Image Size Must Be Less Than 4MB';
+        return  $output;
+    }
+
+
+    $images_folder =  $_SERVER['DOCUMENT_ROOT'] . "/installment/products/images/";
+   
+
+
+    $Image=rand(0,1000000).'_'.strtolower($imageName);
+
+    $Image=str_replace(' ','',$Image);
+    move_uploaded_file($imageTempName,  $images_folder.$Image);
+    $output['success']=true;
+    $output['image']=$Image;
+    return $output;
+
+}
+
 
