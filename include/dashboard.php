@@ -1,8 +1,6 @@
-<?php 
+<?php
 include "auth.php";
-
 ?>
-
 
 <div class="admin-dashboard">
     <ul class="list-group list-group-flush">
