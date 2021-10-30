@@ -29,6 +29,7 @@ $product = $statement->fetch(PDO::FETCH_ASSOC);
 
 $product_name = $product['product_name'];
 $image        = $product['image'];
+
 $category_id  = $product['cat_id'];
 //print_r($product);die;
 
@@ -96,7 +97,9 @@ die;*/
         
         <div class="form-group">
             <label>Image</label>
-            <input  type="file"  class="form-control" name="image" id="image"   accept=".jpg , .png , .jpeg"  
+            <input  type="file"  class="form-control" name="image" id="image"   accept=".jpg , .png , .jpeg"   <a href="images/<?=$product['image']?>" target="_blank">
+                   <img src="images/<?=$product['image']?>" height="80" width="100" class="img-fluid">
+                     </a>
             
              <?php if(!$update_mode) echo 'required' ?>>
         </div>
