@@ -1,35 +1,25 @@
 <?php
 include('../db_connect.php');
 
-$query = "SELECT * FROM customers"; // db query
+$query = "SELECT products.* , categories.category_name FROM `products`
+INNER JOIN categories ON categories.category_id = products.cat_id"; // db query
 $statement = $con->prepare($query);  // prepare query
 $statement->execute();
-$customers = $statement->fetchAll(PDO::FETCH_ASSOC);
+$products = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 /*
 echo "<pre>";
-print_r($customers);
+print_r($products);
 echo "</pre>";
-die;*/
-/*
-foreach($customers as $customer){
-   echo $customer['name']   . " <br>";
-   echo $customer['email']   . " <br>";
-   echo $customer['mobile']   . " <br>";
-   print_r($customer);
-}
-die;*/
-
-
-//die;
-
+die;
+*/
 ?>
 <html>
 <head>
     <title>Products</title>
     <meta charset="utf-8"/>
     <?php include "../include/header.php";?>
-    <link rel="stylesheet" href="customers.css">
+    <link rel="stylesheet" href="products.css">
 </head>
 <body>
 <?php include "../include/navbar.php"?>
@@ -43,28 +33,37 @@ die;*/
     <table id="customers_table" class="table table-bordered table-striped">
         <thead>
         <tr>
+          
+            <th scope="col">#</th>
             <th scope="col">Name</th>
-            <th scope="col">Mobile</th>
-            <th scope="col">Email</th>
+            <th scope="col">Category</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Image</th>
             <th scope="col">Edit</th>
         </tr>
         </thead>
         <tbody>
           <?php
-          foreach($customers as $customer)
+          foreach($products as $product)
           { ?>
                <tr>
-               <td><?=$customer['name']?></td>
-               <td><?=$customer['mobile']?></td>
-               <td><?=$customer['email']?></td>
+               <td><?=$product['product_id']?></td>
+               <td><?=$product['product_name']?></td>
+               <td><?=$product['category_name']?></td>
+               <td><?=$product['quantity']?></td>
+               <td> 
+                   <a href="images/<?=$product['image']?>" target="_blank">
+                   <img src="images/<?=$product['image']?>" height="80" width="100" class="img-fluid">
+                     </a>
+                  
                <td>
-                   <a href="add_customer.php?customer_id=<?=$customer['customer_id']?>"  class="btn btn-primary">Edit</a>
+                   <a href="add_product.php?product_id=<?=$product['product_id']?>"  class="btn btn-primary">Edit</a>
                </td>
               </tr>
           <?php }?>
         </tbody>
     </table>
 </div>
-<script src="customers.js"> </script>
+<script src="products.js"> </script>
 </body>
 </html>

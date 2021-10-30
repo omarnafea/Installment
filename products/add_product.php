@@ -6,7 +6,7 @@ include '../db_connect.php';
 
 $product_id = -1;
 $product_name = "";
-$qunatity = "";
+$quantity = "";
 $image = "";
 $category_id = -1;
 
@@ -15,6 +15,25 @@ $query = "SELECT * FROM categories"; // db query
 $statement = $con->prepare($query);  // prepare query
 $statement->execute();
 $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+
+
+if(isset($_GET['product_id'])){
+    $update_mode = true;
+    $product_id = $_GET['product_id'];
+    
+$query = "SELECT * FROM products where product_id = ?"; // db query
+$statement = $con->prepare($query);  // prepare query
+$statement->execute([$product_id]);
+$product = $statement->fetch(PDO::FETCH_ASSOC);
+
+$product_name = $product['product_name'];
+$image        = $product['image'];
+$category_id  = $product['cat_id'];
+//print_r($product);die;
+
+
+}
 /*
 print_r($categories);
 die;*/
@@ -58,21 +77,28 @@ die;*/
             <select id="category_id" name="category_id" class="form-control">
                 <option value="-1">Select Category</option>
                 <?php 
-                  foreach($categories as $category){?>
-                <option value="<?=$category['category_id']?>"><?=$category['category_name']?></option>
+                  foreach($categories as $category){
+                     $selected = "";  
+                     
+                     if($category['category_id'] == $category_id)
+                         $selected = 'selected';
+                      ?>
+                <option value="<?=$category['category_id']?>" <?=$selected?>><?=$category['category_name']?></option>
 
                   <?php }?>
             </select>
         </div>
 
         <div class="form-group">
-            <label>Quentity</label>
-            <input  type="number" value="<?=$qunatity?>" class="form-control" name="quantity" id="quantity" placeholder="Enter quantity" required >
+            <label><?php if($update_mode) echo 'Increase Quantity'; else echo "Quantity";?> </label>
+            <input  type="number" value="<?=$quantity?>" class="form-control" name="quantity" id="quantity" placeholder="Enter quantity"  <?php if(!$update_mode) echo 'required' ?> >
         </div>
         
         <div class="form-group">
             <label>Image</label>
-            <input  type="file"  class="form-control" name="image" id="image"  required accept=".jpg , .png , .jpeg" >
+            <input  type="file"  class="form-control" name="image" id="image"   accept=".jpg , .png , .jpeg"  
+            
+             <?php if(!$update_mode) echo 'required' ?>>
         </div>
         
         <div class="text-center">
