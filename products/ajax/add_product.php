@@ -14,18 +14,18 @@ if($image['success'] !== true){
 $image_name = $image['image'];
 
 
-//check if this email elready used
-/*
-$query = "SELECT * FROM products WHERE email = ?"; // db query
+//check if this product name elready used
+
+$query = "SELECT * FROM products WHERE product_name = ?"; // db query
 $statement = $con->prepare($query);  // prepare query
-$statement->execute([$_POST['email']]);
-$check_customer = $statement->fetch(PDO::FETCH_ASSOC);
+$statement->execute([$_POST['product_name']]);
+$check_product = $statement->fetch(PDO::FETCH_ASSOC);
 
 //check if $check_customer is araay or is false
-if(is_array($check_customer)){
-    die(json_encode(['success'=>false , 'message'=>'This email elready exist']));
+if(is_array($check_product)){
+    die(json_encode(['success'=>false , 'message'=>'This product elready exist']));
 }
-*/
+
 
 
 
