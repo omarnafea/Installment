@@ -7,24 +7,27 @@ include "auth.php";
         <li class="list-group-item pagelink">
             <a class="stretched-link text-decoration-none" href="../dashboard"><i class="fas fa-list"></i> DASHBOARD</a>
         </li>
+        <li class="list-group-item pagelink">
+                 <a class="stretched-link text-decoration-none" href="../orders"> <i class="fas fa-shopping-cart"></i> Orders</a>
+        </li>
 
             <?php 
              if(isAdmin()){?>
                <li class="list-group-item pagelink">
-                 <a class="stretched-link text-decoration-none" href="../users"> <i class="fas fa-users"></i> users</a>
+                 <a class="stretched-link text-decoration-none" href="../users"> <i class="fas fa-users"></i> Users</a>
               </li>
              <?php } ?>
 
              <?php 
              if(isAdmin()){?>
                <li class="list-group-item pagelink">
-                 <a class="stretched-link text-decoration-none" href="../products"> <i class="fas fa-tag"></i>  products</a>
+                 <a class="stretched-link text-decoration-none" href="../products"> <i class="fas fa-tag"></i>  Products</a>
               </li>
              <?php } ?>
        
 
         <li class="list-group-item pagelink">
-            <a class="stretched-link text-decoration-none" href="../customers/index.php"> <i class="fas fa-users"></i>  customers</a>
+            <a class="stretched-link text-decoration-none" href="../customers/index.php"> <i class="fas fa-users"></i>  Customers</a>
         </li>
 
         <?php 
