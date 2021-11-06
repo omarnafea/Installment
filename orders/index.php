@@ -10,11 +10,6 @@ $statement = $con->prepare($query);  // prepare query
 $statement->execute();
 $orders = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-/*
-echo "<pre>";
-print_r($orders);
-echo "</pre>";
-die;*/
 
 
 ?>
@@ -29,7 +24,7 @@ die;*/
 <?php include "../include/navbar.php"?>
 <div class="container-fluid pt-5">
     <h2 class="text-primary text-center mt-3">Orders</h2>
-    <a href="add_category.php" class="btn btn-primary mb-2">Add New order</a>
+    <a href="add_order.php" class="btn btn-primary mb-2">Add New order</a>
     <table id="categories_table" class="table table-bordered table-striped">
         <thead>
         <tr>
