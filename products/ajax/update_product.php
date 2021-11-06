@@ -25,6 +25,7 @@ if(isset($_POST['quantity']) && !empty($_POST['quantity'])){
 
 $params = [
     ":product_name"   => $_POST['product_name'],
+    ":price"          => $_POST['price'],
     ":cat_id"         => $_POST['category_id'],
     ":quantity"       => $qty,
     ":product_id"     => $_POST['product_id']
@@ -48,7 +49,7 @@ if(!empty( $_FILES['image']['name'])){
 
 
 
-$update = $con->prepare("UPDATE products set product_name = :product_name , cat_id = :cat_id , 
+$update = $con->prepare("UPDATE products set product_name = :product_name , price = :price , cat_id = :cat_id , 
                           quantity  = quantity + :quantity $image_query WHERE product_id = :product_id");
 $update->execute($params);
 

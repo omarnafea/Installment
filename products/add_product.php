@@ -6,6 +6,7 @@ include '../db_connect.php';
 
 $product_id = -1;
 $product_name = "";
+$price = "";
 $quantity = "";
 $image = "";
 $category_id = -1;
@@ -28,6 +29,7 @@ $statement->execute([$product_id]);
 $product = $statement->fetch(PDO::FETCH_ASSOC);
 
 $product_name = $product['product_name'];
+$price = $product['price'];
 $image        = $product['image'];
 
 $category_id  = $product['cat_id'];
@@ -70,6 +72,11 @@ die;*/
         <div class="form-group">
             <label>Product Name</label>
             <input  type="text" value="<?=$product_name?>" class="form-control" name="product_name" id="name" placeholder="Enter product name" required >
+        </div>
+
+        <div class="form-group">
+            <label>Price</label>
+            <input  type="number" value="<?=$price?>" class="form-control" name="price" id="price" placeholder="Enter product price" required >
         </div>
 
         <div class="form-group">

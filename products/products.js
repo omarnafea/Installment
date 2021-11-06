@@ -17,6 +17,16 @@ $(document).on('submit', '#add_product_form', function(event){
         return false;
     }
 
+    if($("#price").val() < 1){
+        Swal.fire({
+            icon: 'warning',
+            title: 'Warning',
+            text:  'Invalid Price'
+        })
+
+        return false;
+    }
+
    
     let ajax_url = "ajax/add_product.php";
 

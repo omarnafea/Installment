@@ -31,13 +31,14 @@ if(is_array($check_product)){
 
 $params = [
     ":product_name"   => $_POST['product_name'],
+    ":price"          => $_POST['price'],
     ":cat_id"         => $_POST['category_id'],
     ":quantity"       => $_POST['quantity'],
     ":image"          => $image_name
 ];
 
-$statment = $con->prepare("INSERT INTO products (product_name , cat_id , quantity , image) 
-                VALUES (:product_name , :cat_id , :quantity , :image)");
+$statment = $con->prepare("INSERT INTO products (product_name  , price , cat_id , quantity , image) 
+                VALUES (:product_name , :price , :cat_id , :quantity , :image)");
 $statment->execute($params);
 
 die(json_encode(['success'=>true , 'message'=>'Product added successfully']));
