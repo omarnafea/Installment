@@ -6,13 +6,14 @@ $statement = $con->prepare("SELECT * FROM customers");  // prepare query
 $statement->execute();
 $customers = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+
+$statement = $con->prepare("SELECT * FROM products");  // prepare query
+$statement->execute();
+$products = $statement->fetchAll(PDO::FETCH_ASSOC);
+
 /*
 echo "<pre>";
-print_r($_SESSION);
-echo "</pre>";
-
-echo "<pre>";
-print_r($customers);
+print_r($products);
 echo "</pre>";
 die;*/
 ?>
@@ -35,7 +36,7 @@ die;*/
 
     <div class="form-group">
       <label>Select Customer</label>
-      <select class="form-control">
+      <select class="form-control" name="customers">
          <option value="-1">Select Customer</option>
          <?php 
             foreach($customers as $customer){ ?>
@@ -47,9 +48,31 @@ die;*/
 
     </div>
 
+        <div class="form-group">
+              <label>Select Products</label>
+              <select class="form-control" id="select_products"  name="products" multiple>
+                 <option value="-1">Select Products</option>
+                 <?php
+                    foreach($products as $product){ ?>
+                        <option value="<?=$product['product_id']?>" class="product"
+                        data-price="<?=$product['price']?>"
+                        >
+                        <?=$product['product_name']?> / <?=$product['price']?> JOD</option>
+                    <?php }?>
+              </select>
+        </div>
+
+          <div class="form-group">
+              <label>Pay Value</label>
+               <input type="number" class="form-control" name="pay_value" id="pay_value">
+         </div>
+
+        <button type="button" id="test_btn">test</button>
 
     </form>
 </div>
 </div>
+
+<script src="orders.js"></script>
 </body>
 </html>
