@@ -36,6 +36,7 @@ die;
           
             <th scope="col">#</th>
             <th scope="col">Name</th>
+            <th scope="col">Price</th>
             <th scope="col">Category</th>
             <th scope="col">Quantity</th>
             <th scope="col">Image</th>
@@ -49,6 +50,7 @@ die;
                <tr>
                <td><?=$product['product_id']?></td>
                <td><?=$product['product_name']?></td>
+               <td><?=$product['price']?></td>
                <td><?=$product['category_name']?></td>
                <td><?=$product['quantity']?></td>
                <td> 

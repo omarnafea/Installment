@@ -6,6 +6,7 @@ include '../db_connect.php';
 
 $product_id = -1;
 $product_name = "";
+$price = "";
 $quantity = "";
 $image = "";
 $category_id = -1;
@@ -28,6 +29,7 @@ $statement->execute([$product_id]);
 $product = $statement->fetch(PDO::FETCH_ASSOC);
 
 $product_name = $product['product_name'];
+$price = $product['price'];
 $image        = $product['image'];
 
 $category_id  = $product['cat_id'];
@@ -73,6 +75,11 @@ die;*/
         </div>
 
         <div class="form-group">
+            <label>Price</label>
+            <input  type="number" value="<?=$price?>" class="form-control" name="price" id="price" placeholder="Enter product price" required >
+        </div>
+
+        <div class="form-group">
             <label>Category</label>
 
             <select id="category_id" name="category_id" class="form-control">
@@ -101,6 +108,14 @@ die;*/
                      </a>
 <?php } ?>
         
+
+        <?php
+          if($image !== ''){?>
+               <a href="images/<?=$image?>" target="_blank">
+                   <img src="images/<?=$image?>" height="120" width="140" class="img-fluid">
+                     </a>
+          <?php } ?>
+
         <div class="form-group">
             <label>Image</label>
             <input  type="file"  class="form-control" name="image" id="image"   accept=".jpg , .png , .jpeg" >  

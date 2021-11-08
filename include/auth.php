@@ -8,7 +8,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 function isAdmin(){
     if($_SESSION['privilege_id'] == 1)
-    return true;
+       return true;
 
     return false;
 }
