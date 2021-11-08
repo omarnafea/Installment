@@ -94,12 +94,16 @@ die;*/
             <label><?php if($update_mode) echo 'Increase Quantity'; else echo "Quantity";?> </label>
             <input  type="number" value="<?=$quantity?>" class="form-control" name="quantity" id="quantity" placeholder="Enter quantity"  <?php if(!$update_mode) echo 'required' ?> >
         </div>
+        <?php 
+        if ($image !==''){?>
+        <a href="images/<?=$product['image']?>" target="_blank">
+                   <img src="images/<?=$product['image']?>" height="80" width="100" class="img-fluid">
+                     </a>
+<?php } ?>
         
         <div class="form-group">
             <label>Image</label>
-            <input  type="file"  class="form-control" name="image" id="image"   accept=".jpg , .png , .jpeg"   <a href="images/<?=$product['image']?>" target="_blank">
-                   <img src="images/<?=$product['image']?>" height="80" width="100" class="img-fluid">
-                     </a>
+            <input  type="file"  class="form-control" name="image" id="image"   accept=".jpg , .png , .jpeg" >  
             
              <?php if(!$update_mode) echo 'required' ?>>
         </div>
