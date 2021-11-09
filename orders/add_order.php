@@ -67,6 +67,11 @@ die;*/
                <input type="number" class="form-control" name="pay_value" id="pay_value">
          </div>
 
+        <div class="form-group">
+               <label for="notes">Notes</label>
+              <textarea class="form-control" name="noted" rows="3" cols="40" id="notes"></textarea>
+         </div>
+
         <button type="button" id="test_btn">test</button>
 
     </form>

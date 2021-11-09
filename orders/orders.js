@@ -14,12 +14,26 @@ $("#test_btn").click(function () {
         total +=  parseFloat($(products[i]).data('price'));
     }
 
-
-    var profitRate = 0.2;
-
     var payValue =  parseFloat($("#pay_value").val());
-    var price = total + total * profitRate;
-    var interval  = price / payValue;
 
-    console.log(interval);
+    $.ajax({
+        url: "ajax/get_profit_rate.php",
+        method:'POST',
+        data: {pay_value  : payValue},
+        dataType : "json",
+        success:function(data)
+        {
+
+
+            var profitRate = parseFloat(data.profit_rate);
+
+            var price = total + total * profitRate;
+            var interval  = price / payValue;
+
+            console.log(data);
+            console.log(interval);
+
+        }
+    });
+
 });
