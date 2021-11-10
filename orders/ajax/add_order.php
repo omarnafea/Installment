@@ -1,30 +1,28 @@
-<?php 
-
-include('../db_connect.php');
+<?php
 
 
-$statement = $con->prepare("SELECT * FROM customers");  // prepare query
-$statement->execute();
-$customers = $statement->fetchAll(PDO::FETCH_ASSOC);
+include "../../db_connect.php";
 
-echo "<pre>";
-print_r($customers);
-echo "</pre>";
-die;
-?>
+//todo recalculate pay interval
 
-<html>
-<head>
-    <title>Orders</title>
-    <meta charset="utf-8"/>
-    <?php include "../include/header.php";?>
-    <link rel="stylesheet" href="orders.css">
-</head>
-<body>
-<?php include "../include/navbar.php"?>
-<div class="container-fluid pt-5">
-    <h2 class="text-primary text-center mt-3">Add Order</h2>
 
-</div>
-</body>
-</html>
+$params = [
+    ":creator_id"     => $_POST['name'],
+    ":customer_id"    => $_POST['email'],
+    ":pay_interval"   => $_POST['mobile'],
+    ":pay_value"      => $_POST['mobile'],
+    ":price"          => $_POST['mobile'],
+    ":notes"          => $_POST['mobile']
+];
+$statment = $con->prepare("INSERT INTO orders 
+                (creator_id , customer_id , pay_interval , pay_value , price , notes) 
+                VALUES (:creator_id , :customer_id , :pay_interval , :pay_value, :price, :notes)");
+$statment->execute($params);
+//order id
+
+
+//todo insert into orders products
+//todo decrease product quantity
+
+die(json_encode(['success'=>true , 'message'=>'Customer added successfully']));
+

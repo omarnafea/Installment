@@ -32,7 +32,7 @@ die;*/
 
     <h2 class="text-primary text-center mt-3">Add Order</h2>
 
-    <form>
+    <form id="add_order_form">
 
     <div class="form-group">
       <label>Select Customer</label>
@@ -62,6 +62,11 @@ die;*/
               </select>
         </div>
 
+        <div class="products">
+
+
+        </div>
+
           <div class="form-group">
               <label>Pay Value</label>
                <input type="number" class="form-control" name="pay_value" id="pay_value">
@@ -73,6 +78,9 @@ die;*/
          </div>
 
         <button type="button" id="test_btn">test</button>
+
+
+        <button type="submit"  class="submit-btn d-none"  id="test_btn">Save</button>
 
     </form>
 </div>
