@@ -3,11 +3,9 @@ $("#test_btn").click(function () {
 
    // var selected_products = $("#select_products").val();
 
-
     //$("#select_products").find(':selected').value();
 
     var products = $(".product:selected");
-
 
     var total = 0;
     for(var i = 0 ; i < products.length ; i++){
@@ -24,14 +22,17 @@ $("#test_btn").click(function () {
         success:function(data)
         {
 
-
             var profitRate = parseFloat(data.profit_rate);
 
             var price = total + total * profitRate;
             var interval  = price / payValue;
 
-            console.log(data);
-            console.log(interval);
+            $("#pay_interval").html(interval + ' Months' );
+            $("#total_price").html(price+ ' JOD' );
+            $(".hidden-input").removeClass('d-none');
+
+           /* console.log(data);
+            console.log(interval);*/
 
         }
     });
@@ -41,6 +42,35 @@ $("#test_btn").click(function () {
 
 $(document).on('submit', '#add_order_form', function(event){
     event.preventDefault();
+
+    var data = {};
+
+    var custoemr_id = $("#customer_id").val();
+    var pay_value = $("#pay_value").val();
+    var notes = $("#notes").val();
+
+    data.custoemr_id = custoemr_id;
+    data.pay_value    = pay_value;
+    data.notes = notes;
+
+    var product_quantity = $(".product-quantity");
+
+    var products = [];
+    for(var i = 0  ; i < product_quantity.length ; i++){
+        products.push({
+            product_id : $(product_quantity[i]).data('product-id'),
+            price : $(product_quantity[i]).data('price') ,
+            quantity :$(product_quantity[i]).val()
+        });
+    }
+
+
+
+    data.products = products;
+    //console.log(products);
+    console.log(data);
+    return;
+   
 
     /*
     if($("#price").val() < 1){
@@ -59,9 +89,7 @@ $(document).on('submit', '#add_order_form', function(event){
     $.ajax({
         url:ajax_url,
         method:'POST',
-        data: new FormData(this),
-        contentType:false,
-        processData:false,
+        data: data,
         dataType : "json",
         success:function(data)
         {
@@ -99,7 +127,7 @@ $("#select_products").change(function () {
            '           <div class="row"> <div class="col-6">'+$(products[i]).text()+'</div>\n' +
            '                <div class="ml-4">\n' +
            '                    <div class="form-group">\n' +
-           '                        <input type="number" data-product-id="'+$(products[i]).val()+'" class="form-control" placeholder="Quantity" name="quantity" >\n' +
+           '                        <input type="number" data-product-id="'+$(products[i]).val()+'"  data-price="'+$(products[i]).data('price')+'" class="form-control product-quantity" placeholder="Quantity" name="quantity" >\n' +
            '                    </div>\n' +
            '                </div>\n' +
            '            </div>')

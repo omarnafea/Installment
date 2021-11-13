@@ -4,7 +4,6 @@
     <list default="true" id="68a816f9-1c6e-4624-83c2-352c3d48e296" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/orders/add_order.php" beforeDir="false" afterPath="$PROJECT_DIR$/orders/add_order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orders/ajax/add_order.php" beforeDir="false" afterPath="$PROJECT_DIR$/orders/ajax/add_order.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/orders/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/orders/orders.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,17 +27,17 @@
       <file leaf-file-name="add_order.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/orders/add_order.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="64" column="28" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="28" />
+            <state relative-caret-position="1820">
+              <caret line="91" column="85" selection-start-line="91" selection-start-column="85" selection-end-line="91" selection-end-column="85" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="orders.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="orders.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/orders/orders.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1860">
-              <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
+            <state relative-caret-position="560">
+              <caret line="61" selection-start-line="61" selection-end-line="61" />
             </state>
           </provider>
         </entry>
@@ -46,8 +45,8 @@
       <file leaf-file-name="products.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/products/products.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="20">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -61,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add_order.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="add_order.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/orders/ajax/add_order.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="60">
+              <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -122,9 +121,9 @@
         <option value="$PROJECT_DIR$/users/index.php" />
         <option value="$PROJECT_DIR$/orders/index.php" />
         <option value="$PROJECT_DIR$/orders/ajax/get_profit_rate.php" />
+        <option value="$PROJECT_DIR$/orders/ajax/add_order.php" />
         <option value="$PROJECT_DIR$/orders/add_order.php" />
         <option value="$PROJECT_DIR$/orders/orders.js" />
-        <option value="$PROJECT_DIR$/orders/ajax/add_order.php" />
       </list>
     </option>
   </component>
@@ -137,7 +136,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="50" />
     <option name="y" value="15" />
     <option name="width" value="1120" />
@@ -148,6 +147,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -164,7 +164,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -211,18 +210,23 @@
       <workItem from="1636401190441" duration="101000" />
       <workItem from="1636476867330" duration="24000" />
       <workItem from="1636481262887" duration="2399000" />
-      <workItem from="1636567019292" duration="3315000" />
+      <workItem from="1636567019292" duration="3548000" />
+      <workItem from="1636573179801" duration="603000" />
+      <workItem from="1636577932599" duration="596000" />
+      <workItem from="1636701357208" duration="1660000" />
+      <workItem from="1636712305991" duration="276000" />
+      <workItem from="1636753638142" duration="38000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23136000" />
+    <option name="totallyTimeSpent" value="26542000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.15771812" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.16778524" />
       <window_info anchor="bottom" id="TODO" order="11" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
@@ -552,6 +556,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/orders/ajax/add_order.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/orders/orders.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -561,29 +572,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/products/products.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="20">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/orders/add_order.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="64" column="28" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="28" />
+        <state relative-caret-position="1820">
+          <caret line="91" column="85" selection-start-line="91" selection-start-column="85" selection-end-line="91" selection-end-column="85" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/orders/orders.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1860">
-          <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/orders/ajax/add_order.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="560">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
         </state>
       </provider>
     </entry>

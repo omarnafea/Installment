@@ -36,7 +36,7 @@ die;*/
 
     <div class="form-group">
       <label>Select Customer</label>
-      <select class="form-control" name="customers">
+      <select class="form-control" name="customers" id="customer_id">
          <option value="-1">Select Customer</option>
          <?php 
             foreach($customers as $customer){ ?>
@@ -64,7 +64,6 @@ die;*/
 
         <div class="products">
 
-
         </div>
 
           <div class="form-group">
@@ -72,15 +71,25 @@ die;*/
                <input type="number" class="form-control" name="pay_value" id="pay_value">
          </div>
 
-        <div class="form-group">
+        <button type="button" id="test_btn" class="btn btn-primary">Calculate Pay Interval</button>
+
+        <div class="d-flex align-items-center">
+            <h4>Pay Interval : </h4>
+            <h6 id="pay_interval"> </h6>
+        </div>
+
+        <div class="d-flex align-items-center">
+            <h4>Total: </h4>
+            <h6 id="total_price"> </h6>
+        </div>
+
+        <div class="form-group d-none hidden-input">
                <label for="notes">Notes</label>
-              <textarea class="form-control" name="noted" rows="3" cols="40" id="notes"></textarea>
+              <textarea class="form-control" name="noted" rows="3" cols="40" id="notes" id="notes"></textarea>
          </div>
 
-        <button type="button" id="test_btn">test</button>
 
-
-        <button type="submit"  class="submit-btn d-none"  id="test_btn">Save</button>
+        <button type="submit"  class="submit-btn btn btn-success d-none  hidden-input"   id="test_btn">Save</button>
 
     </form>
 </div>
