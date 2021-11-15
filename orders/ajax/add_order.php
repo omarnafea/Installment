@@ -2,10 +2,19 @@
 
 
 include "../../db_connect.php";
+$products = [
+    [
+        'product_id' => 5 ,
+        'quantity' =>10 ,
+        'price'=> 150
+    ],[
+        'product_id' => 5 ,
+        'quantity' =>10 ,
+        'price'=> 150
+    ]
+];
 
 //todo recalculate pay interval
-
-
 $params = [
     ":creator_id"     => $_POST['name'],
     ":customer_id"    => $_POST['email'],

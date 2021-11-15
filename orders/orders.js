@@ -1,9 +1,23 @@
-$("#test_btn").click(function () {
+$("#calc_pay_interval").click(function () {
 
 
-   // var selected_products = $("#select_products").val();
 
-    //$("#select_products").find(':selected').value();
+    var products =$(".product-quantity");
+
+    var qty , price , total_price = 0;
+
+    for(var i = 0 ; i < products.length  ; i++ ){
+        qty = $(products[i]).val();
+        price = $(products[i]).data('price');
+        total_price += qty * price;
+    }
+
+    console.log(total_price);
+
+
+    return;
+
+
 
     var products = $(".product:selected");
 
@@ -33,7 +47,6 @@ $("#test_btn").click(function () {
 
            /* console.log(data);
             console.log(interval);*/
-
         }
     });
 
@@ -63,8 +76,6 @@ $(document).on('submit', '#add_order_form', function(event){
             quantity :$(product_quantity[i]).val()
         });
     }
-
-
 
     data.products = products;
     //console.log(products);
@@ -117,20 +128,20 @@ $(document).on('submit', '#add_order_form', function(event){
 $("#select_products").change(function () {
 
     var products = $(".product:selected");
-
-
-
     $(".products").html('');
+
+
     for(var i = 0 ; i < products.length ; i++){
 
        $(".products").append(
-           '           <div class="row"> <div class="col-6">'+$(products[i]).text()+'</div>\n' +
-           '                <div class="ml-4">\n' +
-           '                    <div class="form-group">\n' +
-           '                        <input type="number" data-product-id="'+$(products[i]).val()+'"  data-price="'+$(products[i]).data('price')+'" class="form-control product-quantity" placeholder="Quantity" name="quantity" >\n' +
-           '                    </div>\n' +
-           '                </div>\n' +
-           '            </div>')
+       '           <div class="row"> ' +
+                    '<div class="col-6">'+$(products[i]).text()+'</div>\n' +
+       '                 <div class="ml-4">\n' +
+       '                    <div class="form-group">\n' +
+       '                        <input type="number" data-product-id="'+$(products[i]).val()+'"  data-price="'+$(products[i]).data('price')+'" class="form-control product-quantity" value="1" placeholder="Quantity" name="quantity" >\n' +
+       '                    </div>\n' +
+       '                </div>\n' +
+       '            </div>')
     }
 
     console.log($(this).val());
