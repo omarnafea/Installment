@@ -1,10 +1,12 @@
+
+var interval  , total_price = 0 , priceAfterRate;
 $("#calc_pay_interval").click(function () {
 
 
 
     var products =$(".product-quantity");
 
-    var qty , price , total_price = 0;
+    var qty , price ;
 
     for(var i = 0 ; i < products.length  ; i++ ){
         qty = $(products[i]).val();
@@ -12,21 +14,8 @@ $("#calc_pay_interval").click(function () {
         total_price += qty * price;
     }
 
-    console.log(total_price);
-
-
-    return;
-
-
-
-    var products = $(".product:selected");
-
-    var total = 0;
-    for(var i = 0 ; i < products.length ; i++){
-        total +=  parseFloat($(products[i]).data('price'));
-    }
-
     var payValue =  parseFloat($("#pay_value").val());
+
 
     $.ajax({
         url: "ajax/get_profit_rate.php",
@@ -35,21 +24,20 @@ $("#calc_pay_interval").click(function () {
         dataType : "json",
         success:function(data)
         {
-
             var profitRate = parseFloat(data.profit_rate);
 
-            var price = total + total * profitRate;
-            var interval  = price / payValue;
+             priceAfterRate = total_price + (total_price * profitRate);
+
+             interval  = priceAfterRate / payValue;
 
             $("#pay_interval").html(interval + ' Months' );
-            $("#total_price").html(price+ ' JOD' );
+            $("#total_price").html(priceAfterRate+ ' JOD' );
             $(".hidden-input").removeClass('d-none');
 
-           /* console.log(data);
-            console.log(interval);*/
+            /* console.log(data);
+             console.log(interval);*/
         }
     });
-
 });
 
 
@@ -58,41 +46,30 @@ $(document).on('submit', '#add_order_form', function(event){
 
     var data = {};
 
-    var custoemr_id = $("#customer_id").val();
+    var customer_id = $("#customer_id").val();
     var pay_value = $("#pay_value").val();
     var notes = $("#notes").val();
 
-    data.custoemr_id = custoemr_id;
+    data.customer_id = customer_id;
     data.pay_value    = pay_value;
     data.notes = notes;
+    data.interval = interval;
+    data.total_price = priceAfterRate;
 
     var product_quantity = $(".product-quantity");
 
     var products = [];
     for(var i = 0  ; i < product_quantity.length ; i++){
-        products.push({
+        products.push(
+            {
             product_id : $(product_quantity[i]).data('product-id'),
             price : $(product_quantity[i]).data('price') ,
             quantity :$(product_quantity[i]).val()
-        });
+          }
+        );
     }
 
     data.products = products;
-    //console.log(products);
-    console.log(data);
-    return;
-   
-
-    /*
-    if($("#price").val() < 1){
-        Swal.fire({
-            icon: 'warning',
-            title: 'Warning',
-            text:  'Invalid Price'
-        })
-
-        return false;
-    }*/
 
 
     let ajax_url = "ajax/add_order.php";
