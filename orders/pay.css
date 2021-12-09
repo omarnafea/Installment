@@ -18,6 +18,7 @@
     width: 80%;
     border-radius: 20px;
 }
-.table-striped{
-    font-size: 16px !important;
+
+.container-fluid{
+    margin-top: 7rem;
 }

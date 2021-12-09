@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68a816f9-1c6e-4624-83c2-352c3d48e296" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/orders/ajax/pay.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/pay.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/pay.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orders/pay.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orders/ajax/add_order.php" beforeDir="false" afterPath="$PROJECT_DIR$/orders/ajax/add_order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orders/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/orders/orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orders/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/orders/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orders/orders.css" beforeDir="false" afterPath="$PROJECT_DIR$/orders/orders.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,11 +19,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="add_order.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/orders/add_order.php">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/orders/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="74" column="32" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="32" />
+            <state relative-caret-position="400">
+              <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="orders.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/orders/orders.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/users/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="39" column="6" lean-forward="true" selection-start-line="37" selection-start-column="4" selection-end-line="39" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -27,42 +49,64 @@
       <file leaf-file-name="orders.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/orders/orders.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+            <state relative-caret-position="2040">
+              <caret line="102" selection-start-line="42" selection-end-line="102" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add_order.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pay.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/orders/pay.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="233">
+              <caret line="51" column="6" selection-start-line="51" selection-start-column="6" selection-end-line="51" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pay.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/orders/ajax/pay.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pay.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/orders/pay.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="categories.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/categories/categories.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="20" column="26" selection-start-line="18" selection-start-column="7" selection-end-line="20" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add_order.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/orders/ajax/add_order.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="380">
+              <caret line="19" column="33" selection-start-line="6" selection-end-line="19" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login_ajax.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login/login_ajax.php">
+      <file leaf-file-name="add_category.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/categories/add_category.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+            <state relative-caret-position="1260">
+              <caret line="63" selection-start-line="59" selection-start-column="8" selection-end-line="63" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="get_profit_rate.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/orders/ajax/get_profit_rate.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="4" column="111" selection-start-line="4" selection-start-column="111" selection-end-line="4" selection-end-column="111" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../test/index.php">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -70,8 +114,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -80,6 +124,7 @@
       <find>.admin-dashboard</find>
       <find>select_products</find>
       <find>pay_interval</find>
+      <find>$sumPaidAmount</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -108,11 +153,17 @@
         <option value="$PROJECT_DIR$/users/add_user.php" />
         <option value="$PROJECT_DIR$/users/ajax/update_user.php" />
         <option value="$PROJECT_DIR$/users/index.php" />
-        <option value="$PROJECT_DIR$/orders/index.php" />
         <option value="$PROJECT_DIR$/orders/ajax/get_profit_rate.php" />
         <option value="$PROJECT_DIR$/orders/add_order.php" />
         <option value="$PROJECT_DIR$/orders/orders.js" />
         <option value="$PROJECT_DIR$/orders/ajax/add_order.php" />
+        <option value="$PROJECT_DIR$/categories/pay.css" />
+        <option value="$PROJECT_DIR$/orders/pay.css" />
+        <option value="$PROJECT_DIR$/orders/ajax/pay.php" />
+        <option value="$PROJECT_DIR$/orders/pay.js" />
+        <option value="$PROJECT_DIR$/orders/orders.css" />
+        <option value="$PROJECT_DIR$/orders/index.php" />
+        <option value="$PROJECT_DIR$/orders/pay.php" />
       </list>
     </option>
   </component>
@@ -125,7 +176,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="50" />
     <option name="y" value="15" />
     <option name="width" value="1120" />
@@ -136,6 +187,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -146,13 +198,12 @@
             <path>
               <item name="Installment" type="b2602c69:ProjectViewProjectNode" />
               <item name="Installment" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -164,6 +215,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Installment\orders" />
       <recent name="C:\wamp64\www\Installment\dashboard" />
       <recent name="C:\wamp64\www\Installment\login" />
     </key>
@@ -207,29 +259,31 @@
       <workItem from="1636753638142" duration="38000" />
       <workItem from="1636999488250" duration="4003000" />
       <workItem from="1637400596989" duration="24000" />
-      <workItem from="1638604051929" duration="3823000" />
+      <workItem from="1638604051929" duration="4461000" />
+      <workItem from="1638987003164" duration="5127000" />
+      <workItem from="1639064326939" duration="2148000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34392000" />
+    <option name="totallyTimeSpent" value="42305000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.22483222" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.15771812" />
       <window_info anchor="bottom" id="TODO" order="11" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="7" />
       <window_info anchor="bottom" id="Version Control" order="4" />
+      <window_info anchor="bottom" id="Run" order="7" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="3" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
@@ -246,51 +300,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/login/login_ajax.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/users/ajax/add_user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/users/ajax/update_user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/products/add_product.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/users/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" column="3" lean-forward="true" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashboard/index.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/users/add_user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="920">
-          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/users/users.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -510,31 +519,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/users/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/orders/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" selection-start-line="8" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/customers/ajax/add_customer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/orders/orders.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="11" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -548,13 +536,6 @@
     <entry file="file://$PROJECT_DIR$/../test/index.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/orders/add_order.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="74" column="32" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/orders/ajax/get_profit_rate.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -564,22 +545,99 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/login/login_ajax.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+        <state relative-caret-position="420">
+          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/orders/orders.js">
+    <entry file="file://$PROJECT_DIR$/categories/categories.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+        <state relative-caret-position="260">
+          <caret line="13" column="22" selection-end-line="19" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/orders/pay.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/categories/add_category.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="63" selection-start-line="59" selection-start-column="8" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/orders/add_order.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="74" column="32" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/orders/ajax/add_order.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="380">
+          <caret line="19" column="33" selection-start-line="6" selection-end-line="19" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/orders/orders.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2040">
+          <caret line="102" selection-start-line="42" selection-end-line="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/categories/categories.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="20" column="26" selection-start-line="18" selection-start-column="7" selection-end-line="20" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/orders/pay.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/orders/ajax/pay.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/orders/orders.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="39" column="6" lean-forward="true" selection-start-line="37" selection-start-column="4" selection-end-line="39" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/orders/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="28" column="6" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/orders/pay.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="51" column="6" selection-start-line="51" selection-start-column="6" selection-end-line="51" selection-end-column="6" />
         </state>
       </provider>
     </entry>
