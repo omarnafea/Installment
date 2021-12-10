@@ -33,6 +33,9 @@ if(floatval($paid_amount) < floatval($order['pay_value']) * floor($diff_in_month
     $isLate = true;
 }
 
+$is_canceled = $order['status'] == 'CANCELED';
+//todo check if the order finished
+//
 //echo '<pre>';
 //print_r($order);
 //echo '</pre>';
@@ -59,6 +62,11 @@ if(floatval($paid_amount) < floatval($order['pay_value']) * floor($diff_in_month
         echo "<h3 class='alert alert-danger'>This customer has a late installments</h3>";
     }
     ?>
+    <?php
+    if($is_canceled == true){
+        echo "<h3 class='alert alert-danger'>You cannot make a payment for this order because it was canceled</h3>";
+    }
+    ?>
     <div class="row justify-content-between mb-3">
 
         <div>
@@ -81,9 +89,10 @@ if(floatval($paid_amount) < floatval($order['pay_value']) * floor($diff_in_month
             <?=$order['price']?> JOD
         </div>
     </div>
+
+<?php
+if($is_canceled == false){?>
     <div class="main-form">
-
-
         <form id="pay_form" class="">
             <div class="form-group">
                 <label>Pay value</label>
@@ -95,6 +104,10 @@ if(floatval($paid_amount) < floatval($order['pay_value']) * floor($diff_in_month
             </div>
         </form>
     </div>
+
+<?php
+} ?>
+
 </div>
 <script src="pay.js"> </script>
 </body>

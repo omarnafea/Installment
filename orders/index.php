@@ -6,7 +6,9 @@ $query = "SELECT o.*  , c.name as customer_name , c.mobile as customer_mobile , 
 IFNULL((SELECT SUM(amount) FROM installments WHERE order_id = o.order_id  ),0) as sum_paid
 from orders as o
 INNER JOIN customers as c  ON c.customer_id = o.customer_id
-INNER JOIN users as u ON u.id = o.creator_id"; // db query
+INNER JOIN users as u ON u.id = o.creator_id
+ORDER BY o.creation_date ASC
+"; // db query
 $statement = $con->prepare($query);  // prepare query
 $statement->execute();
 $orders = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -62,25 +64,23 @@ $orders = $statement->fetchAll(PDO::FETCH_ASSOC);
                   $isLate = true;
                   //todo send SMS to this customer
               }
-
               ?>
-               <tr class="<?=$isLate ? 'bg-danger': ''?>">
+               <tr class="<?=$isLate ? 'bg-danger': ''?>" id="<?=$order['order_id']?>">
                <td><?=$order['order_id']?></td>
                <td><?=$order['creator_name'] . ' / ' .$order['customer_mobile'] ?></td>
                <td><?=$order['creator_name']?></td>
                <td><?=$order['status']?></td>
-               <td><?=$paid_amount?></td>
+               <td><?=$paid_amount?> JOD</td>
                <td><?=$order['price']?> JOD</td>
                <td><?=$order['products_price']?> JOD</td>
                <td><?= ($order['price'] - $order['products_price'] )?> JOD</td>
-               <td><?=$order['pay_interval']?></td>
+               <td><?=$order['pay_interval']?> Months</td>
                <td><?=$order['pay_value']?>JOD</td>
                <td><?=$order['notes']?></td>
                <td><?=$order['creation_date']?></td>
-              
                <td>
-                   <a href="add_category.php?category_id"  class="btn btn-primary d-none">Edit</a>
-                   <a href="pay.php?order_id=<?=$order['order_id']?>"  class="btn btn-success">Pay <i class="fas fa-cash-register"></i></a>
+                   <button class="btn btn-danger cancel"><i class="fas fa-trash-alt"></i></button>
+                   <a href="pay.php?order_id=<?=$order['order_id']?>"  class="btn btn-success"> <i class="fas fa-cash-register"></i></a>
                </td>
               </tr>
           <?php }?>
