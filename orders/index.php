@@ -58,8 +58,9 @@ $orders = $statement->fetchAll(PDO::FETCH_ASSOC);
               $paid_amount = $order['sum_paid'];
               $isLate = false;
 
-              if(floatval($paid_amount) < floatval($order['pay_value']) * $diff_in_month){
+              if(floatval($paid_amount) < floatval($order['pay_value']) * floor($diff_in_month)){
                   $isLate = true;
+                  //todo send SMS to this customer
               }
 
               ?>
@@ -69,11 +70,11 @@ $orders = $statement->fetchAll(PDO::FETCH_ASSOC);
                <td><?=$order['creator_name']?></td>
                <td><?=$order['status']?></td>
                <td><?=$paid_amount?></td>
-               <td><?=$order['price']?></td>  
-               <td><?=$order['products_price']?></td>
-               <td><?= ($order['price'] - $order['products_price'] )?></td>
+               <td><?=$order['price']?> JOD</td>
+               <td><?=$order['products_price']?> JOD</td>
+               <td><?= ($order['price'] - $order['products_price'] )?> JOD</td>
                <td><?=$order['pay_interval']?></td>
-               <td><?=$order['pay_value']?></td>
+               <td><?=$order['pay_value']?>JOD</td>
                <td><?=$order['notes']?></td>
                <td><?=$order['creation_date']?></td>
               

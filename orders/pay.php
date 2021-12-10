@@ -18,14 +18,18 @@ $order = $statement->fetch(PDO::FETCH_ASSOC);
 $creation_date = strtotime($order['creation_date']) * 1000;
 $current_time =  microtime(true) * 1000;
 
+
 $time_diff = $current_time - $creation_date;
+
+
+
 
 $diff_in_month = $time_diff / 1000 / 60 / 60 / 24 / 30;
 $paid_amount = $order['sum_paid'];
 
 $isLate = false;
 
-if(floatval($paid_amount) < floatval($order['pay_value']) * $diff_in_month){
+if(floatval($paid_amount) < floatval($order['pay_value']) * floor($diff_in_month)){
     $isLate = true;
 }
 
@@ -34,7 +38,7 @@ if(floatval($paid_amount) < floatval($order['pay_value']) * $diff_in_month){
 //echo '</pre>';
 //
 //var_dump($isLate);
-//var_dump($diff_in_month);
+//var_dump(floor($diff_in_month));
 //var_dump($paid_amount);die;
 ?>
 <html>
@@ -51,8 +55,8 @@ if(floatval($paid_amount) < floatval($order['pay_value']) * $diff_in_month){
     include "../include/dashboard.php";
     ?>
     <?php
-    if($isLate){
-        echo "<h3 class='alert alert-danger'>This customer has late installments</h3>";
+    if($isLate == true){
+        echo "<h3 class='alert alert-danger'>This customer has a late installments</h3>";
     }
     ?>
     <div class="row justify-content-between mb-3">
