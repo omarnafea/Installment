@@ -7,6 +7,7 @@ $(document).ready(function () {
 var interval  , total_price = 0 , priceAfterRate;
 $("#calc_pay_interval").click(function () {
 
+    total_price= 0;
     var products =$(".qty");
 
     var qty , price ;
@@ -29,7 +30,6 @@ $("#calc_pay_interval").click(function () {
 
     var payValue =  parseFloat($("#pay_value").val());
 
-    console.log(payValue);
     if(isNaN(payValue) || payValue < 1){
         Swal.fire({
             icon: 'warning',
@@ -49,8 +49,11 @@ $("#calc_pay_interval").click(function () {
             var profitRate = parseFloat(data.profit_rate);
 
              priceAfterRate = total_price + (total_price * profitRate);
-
              interval  = parseFloat(priceAfterRate / payValue) ;
+
+             console.log(total_price);
+             console.log(priceAfterRate);
+             console.log(interval);
 
 
              var days = (interval - Math.floor(interval)) * 30;
@@ -65,8 +68,6 @@ $("#calc_pay_interval").click(function () {
             $("#total_price").html(priceAfterRate+ ' JOD' );
             $(".hidden-input").removeClass('d-none');
 
-            /* console.log(data);
-             console.log(interval);*/
         }
     });
 });
@@ -182,7 +183,6 @@ $("#select_products").change(function () {
        '            </div>')
     }
 
-    console.log($(this).val());
 
 
 });
