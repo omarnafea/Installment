@@ -28,13 +28,15 @@ die;*/
 <body>
 <?php include "../include/navbar.php"?>
 <div class="container-fluid pt-5">
+    <?php
+    include "../include/dashboard.php";
+    ?>
 <div class="main-form">
 
     <h2 class="text-primary text-center mt-3">Add Order</h2>
 
     <form id="add_order_form">
-
-    <div class="form-group">
+    <div class="form-group col-md-3">
       <label>Select Customer</label>
       <select class="form-control" name="customers" id="customer_id">
          <option value="-1">Select Customer</option>
@@ -46,10 +48,27 @@ die;*/
             <?php }?>
 
       </select>
-
     </div>
 
-        <div class="form-group">
+
+        <div class="row products-container">
+            <?php
+            foreach($products as $product){ ?>
+                <div class="col-md-3">
+                    <div class="card" style="/*width: 10rem;*/">
+                        <img src="../products/images/<?=$product['image']?>" height="200" width="200" class="card-img-top img-fluid" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><?=$product['product_name']?> / <span class="text-danger"><?=$product['price']?> JOD</span></h5>
+                            <a href="javascript:;" class="btn btn-primary btn-select product"
+                            data-product-id="<?=$product['product_id']?>"  data-price="<?=$product['price']?>"
+                            >Select</a>
+                        </div>
+                    </div>
+                </div>
+            <?php }?>
+        </div>
+
+        <div class="form-group d-none">
               <label>Select Products</label>
               <select class="form-control" id="select_products"  name="products" multiple>
                  <?php
@@ -63,22 +82,39 @@ die;*/
 
         <div class="products"></div>
 
-          <div class="form-group">
-              <label>Pay Value</label>
-               <input type="number" class="form-control" name="pay_value" id="pay_value">
-         </div>
 
-        <button type="button" id="calc_pay_interval" class="btn btn-primary">Calculate Pay Interval</button>
+        <div class="row">
 
-        <div class="d-flex align-items-center">
-            <h4>Pay Interval : </h4>
-            <h6 id="pay_interval"> </h6>
+            <div class="form-group col-md-4">
+                <label>Pay Value</label>
+                <input type="number" class="form-control" name="pay_value" id="pay_value">
+            </div>
+
+            <div class="col-md-4 align-self-center">
+                <button type="button" id="calc_pay_interval" class="btn btn-primary ">Calculate Pay Interval</button>
+
+            </div>
         </div>
 
-        <div class="d-flex align-items-center">
-            <h4>Total: </h4>
-            <h6 id="total_price"> </h6>
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="d-flex align-items-center">
+                    <h4>Pay Interval : </h4>
+                    <h6 id="pay_interval"> </h6>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="d-flex align-items-center">
+                    <h4>Total: </h4>
+                    <h6 id="total_price"> </h6>
+                </div>
+            </div>
+
         </div>
+
 
         <div class="form-group d-none hidden-input">
                <label for="notes">Notes</label>

@@ -1,21 +1,43 @@
 
+
+$(document).ready(function () {
+   $("#orders_table").DataTable();
+});
+
 var interval  , total_price = 0 , priceAfterRate;
 $("#calc_pay_interval").click(function () {
 
-
-
-    var products =$(".product-quantity");
+    var products =$(".qty");
 
     var qty , price ;
 
     for(var i = 0 ; i < products.length  ; i++ ){
         qty = $(products[i]).val();
+
+        if(qty < 1){
+            Swal.fire({
+                icon: 'warning',
+                title: 'Invalid Quantity ' + qty,
+                text: ""
+            });
+            return false;
+        }
+
         price = $(products[i]).data('price');
         total_price += qty * price;
     }
 
     var payValue =  parseFloat($("#pay_value").val());
 
+    console.log(payValue);
+    if(isNaN(payValue) || payValue < 1){
+        Swal.fire({
+            icon: 'warning',
+            title: 'Invalid Pay value ',
+            text: ""
+        });
+        return false;
+    }
 
     $.ajax({
         url: "ajax/get_profit_rate.php",
@@ -28,9 +50,18 @@ $("#calc_pay_interval").click(function () {
 
              priceAfterRate = total_price + (total_price * profitRate);
 
-             interval  = priceAfterRate / payValue;
+             interval  = parseFloat(priceAfterRate / payValue) ;
 
-            $("#pay_interval").html(interval + ' Months' );
+
+             var days = (interval - Math.floor(interval)) * 30;
+             var months= Math.floor(interval);
+
+            var interval_text = months + " M " ;
+
+            if(days != 0)
+                interval_text += Math.round(days)  + " D";
+            $("#pay_interval").html(interval_text);
+
             $("#total_price").html(priceAfterRate+ ' JOD' );
             $(".hidden-input").removeClass('d-none');
 
@@ -47,7 +78,27 @@ $(document).on('submit', '#add_order_form', function(event){
     var data = {};
 
     var customer_id = $("#customer_id").val();
+
+    if(customer_id == '-1'){
+        Swal.fire({
+            icon: 'warning',
+            title: 'Please select a customer',
+            text: ""
+        });
+        return false;
+    }
+
     var pay_value = $("#pay_value").val();
+
+    if(isNaN(pay_value) || pay_value < 1) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Invalid pay value ' ,
+            text: ""
+        });
+        return;
+    }
+
     var notes = $("#notes").val();
 
     data.customer_id = customer_id;
@@ -56,10 +107,20 @@ $(document).on('submit', '#add_order_form', function(event){
     data.interval = interval;
     data.total_price = priceAfterRate;
 
-    var product_quantity = $(".product-quantity");
+    var product_quantity = $(".qty");
 
     var products = [];
     for(var i = 0  ; i < product_quantity.length ; i++){
+
+        if($(product_quantity[i]).val() < 1) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Invalid Quantity ' + $(product_quantity[i]).val(),
+                text: ""
+            });
+            return;
+        }
+
         products.push(
             {
             product_id : $(product_quantity[i]).data('product-id'),
@@ -173,7 +234,34 @@ $(document).on('click', '.cancel', function(event){
 
     }
 });
+});
+
+$(".btn-select").click(function () {
+
+    if($(this).hasClass('pro-selected')){
+         $(this).removeClass('pro-selected');
+         $(this).removeClass('btn-success');
+         $(this).addClass('btn-primary');
+         $(this).text('Select');
+        $(this).parent().parent().find('.qty').remove();
+    }else{
+        $(this).addClass('pro-selected');
+        $(this).removeClass('btn-primary');
+        $(this).addClass('btn-success');
+        $(this).text('Selected');
+        $(this).parent().append(`<input type="number" class="qty form-control mt-2" placeholder="QTY" 
+                data-product-id="${$(this).data('product-id')}"  data-price="${$(this).data('price')}">`);
+    }
+});
 
 
+$("#filter_customer").change(function () {
+   let customer_id = $(this).val();
+   if(customer_id == '-1'){
+       window.location.href = 'index.php';
+   }else{
+       window.location.href = 'index.php?customer_id=' + customer_id;
+
+   }
 
 });

@@ -101,7 +101,8 @@ die;*/
 
         <div class="form-group">
             <label><?php if($update_mode) echo 'Increase Quantity'; else echo "Quantity";?> </label>
-            <input  type="number" value="<?=$quantity?>" class="form-control" name="quantity" id="quantity" placeholder="Enter quantity"  <?php if(!$update_mode) echo 'required' ?> >
+            <input  type="number" value="<?=$quantity?>" class="form-control" name="quantity" id="quantity"
+                    placeholder="Enter quantity"  <?php if(!$update_mode) echo 'required' ?> >
         </div>
         <?php 
         if ($image !==''){?>
@@ -120,7 +121,7 @@ die;*/
 
         <div class="form-group">
             <label>Image</label>
-            <input  type="file"  class="form-control" name="image" id="image"   accept=".jpg , .png , .jpeg" >  
+            <input  type="file"  class="form-control" name="image" id="image"   accept=".jpg , .png , .jpeg"
             
              <?php if(!$update_mode) echo 'required' ?>>
         </div>

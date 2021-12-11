@@ -1,18 +1,38 @@
 <?php
 include('../db_connect.php');
 
+$customer_id = -1;
+$customer_condition = '';
+$params = [];
+
+if(isset($_GET['customer_id'])){
+    $customer_id = $_GET['customer_id'];
+    $customer_condition = ' WHERE o.customer_id = ?';
+    $params[] = $customer_id;
+}
+
+
+
 $query = "SELECT o.*  , c.name as customer_name , c.mobile as customer_mobile , u.name as creator_name ,
 (SELECT SUM(sub_price) FROM orders_products WHERE order_id = o.order_id  ) as products_price,
 IFNULL((SELECT SUM(amount) FROM installments WHERE order_id = o.order_id  ),0) as sum_paid
 from orders as o
 INNER JOIN customers as c  ON c.customer_id = o.customer_id
 INNER JOIN users as u ON u.id = o.creator_id
+$customer_condition
 ORDER BY o.creation_date ASC
 "; // db query
+
+
 $statement = $con->prepare($query);  // prepare query
-$statement->execute();
+$statement->execute($params);
 $orders = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+
+$query = "SELECT * FROM customers"; // db query
+$statement = $con->prepare($query);  // prepare query
+$statement->execute();
+$customers = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 
 ?>
@@ -30,8 +50,27 @@ $orders = $statement->fetchAll(PDO::FETCH_ASSOC);
     include "../include/dashboard.php";
     ?>
     <h2 class="text-primary text-center mt-3">Orders</h2>
-    <a href="add_order.php" class="btn btn-primary mb-2">Add New order</a>
-    <table id="categories_table" class="table table-bordered table-striped">
+
+    <div class="row">
+        <div class="col-md-4">
+            <a href="add_order.php" class="btn btn-primary mb-2">Add New order</a>
+
+        </div>
+        <div class="form-group col-md-4">
+            <select class="form-control" name="customers" id="filter_customer">
+                <option value="-1">All Customers</option>
+                <?php
+                foreach($customers as $customer){
+                    $selected = $customer['customer_id'] == $customer_id ? 'selected': '';
+                    ?>
+                    <option <?=$selected?> value="<?=$customer['customer_id']?>">
+                        <?=$customer['name']?> / <?=$customer['mobile']?>
+                    </option>
+                <?php }?>
+            </select>
+        </div>
+    </div>
+    <table id="orders_table" class="table table-bordered table-striped">
         <thead>
         <tr>
             <th scope="col">#</th>
@@ -46,6 +85,7 @@ $orders = $statement->fetchAll(PDO::FETCH_ASSOC);
             <th scope="col">Pay Value</th>
             <th scope="col">Notes</th>
             <th scope="col">Date</th>
+            <th scope="col">Action</th>
         </tr>
         </thead>
         <tbody>
@@ -60,6 +100,14 @@ $orders = $statement->fetchAll(PDO::FETCH_ASSOC);
               $paid_amount = $order['sum_paid'];
               $isLate = false;
 
+              $pay_interval = floatval($order['pay_interval']);
+              $days = ($pay_interval - floor($pay_interval))*30;
+              $months = floor($pay_interval);
+
+              $interval_text = $months . " M " ;
+              if($days != 0)
+                  $interval_text .= $days . " D";
+
               if(floatval($paid_amount) < floatval($order['pay_value']) * floor($diff_in_month)){
                   $isLate = true;
                   //todo send SMS to this customer
@@ -67,14 +115,14 @@ $orders = $statement->fetchAll(PDO::FETCH_ASSOC);
               ?>
                <tr class="<?=$isLate ? 'bg-danger': ''?>" id="<?=$order['order_id']?>">
                <td><?=$order['order_id']?></td>
-               <td><?=$order['creator_name'] . ' / ' .$order['customer_mobile'] ?></td>
+               <td><?=$order['customer_name'] . ' / ' .$order['customer_mobile'] ?></td>
                <td><?=$order['creator_name']?></td>
                <td><?=$order['status']?></td>
                <td><?=$paid_amount?> JOD</td>
                <td><?=$order['price']?> JOD</td>
                <td><?=$order['products_price']?> JOD</td>
                <td><?= ($order['price'] - $order['products_price'] )?> JOD</td>
-               <td><?=$order['pay_interval']?> Months</td>
+               <td><?=$interval_text?></td>
                <td><?=$order['pay_value']?>JOD</td>
                <td><?=$order['notes']?></td>
                <td><?=$order['creation_date']?></td>

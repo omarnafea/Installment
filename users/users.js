@@ -1,7 +1,5 @@
 
- $("#users_table").DataTable(
-     
- );
+ $("#users_table").DataTable();
 
 
 $(document).on('submit', '#user_add_form', function(event){

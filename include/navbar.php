@@ -4,8 +4,8 @@ session_start();
 
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <a class="navbar-brand" href="admin.php">
-        <img src="logo" width="50" height="35" alt="logo"/>
+    <a class="navbar-brand" href="../dashboard/index.php">
+        <img src="../products/images/sasha.jpg" width="50" height="35" alt="logo"/>
     </a>
 
     <a class="nav-link dashboard-list close" href="#"><i class="fas fa-list fa-xs"></i></a>

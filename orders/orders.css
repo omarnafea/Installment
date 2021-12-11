@@ -1,5 +1,5 @@
 .main-form{
-    width: 50%;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -14,10 +14,29 @@
     font-weight: bold;
 
 }
+
 .submit-btn{
     width: 80%;
     border-radius: 20px;
 }
+
 .table-striped{
     font-size: 16px !important;
+}
+
+.card img{
+    height: 180px;
+}
+
+.card h5{
+    font-size: 20px !important;
+    font-weight: bolder;
+}
+.card span{
+    font-size: 14px;
+}
+
+.products-container{
+    height: 500px;
+    overflow-y: scroll;
 }

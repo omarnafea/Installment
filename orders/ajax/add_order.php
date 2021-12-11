@@ -42,5 +42,5 @@ foreach ($_POST['products'] as $order_product){
 //todo insert into orders products
 //todo decrease product quantity
 
-die(json_encode(['success'=>true , 'message'=>'Customer added successfully']));
+die(json_encode(['success'=>true , 'message'=>'Order added successfully']));
 
