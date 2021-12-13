@@ -18,10 +18,22 @@ $statement = $con->prepare($query);  // prepare query
 $statement->execute();
 $profit = $statement->fetchColumn();
 
-//var_dump($profit);
-//echo '<pre>';
-//print_r($installments);
-//echo '</pre>';
+$query = "SELECT  SUM(o.price - ((SELECT SUM(sub_price) FROM orders_products WHERE order_id = o.order_id ) )) as profit
+from orders as o
+WHERE YEAR(o.creation_date) = YEAR(now())
+"; // db query
+$statement = $con->prepare($query);  // prepare query
+$statement->execute();
+$profit_this_year = $statement->fetchColumn();
+
+$query = "SELECT  SUM(o.price - ((SELECT SUM(sub_price) FROM orders_products WHERE order_id = o.order_id ) )) as profit
+from orders as o
+WHERE YEAR(o.creation_date) = YEAR(now())
+AND MONTH(o.creation_date) = MONTH(now())
+"; // db query
+$statement = $con->prepare($query);  // prepare query
+$statement->execute();
+$profit_this_month = $statement->fetchColumn();
 ?>
 <html>
 <head>
@@ -66,6 +78,8 @@ $profit = $statement->fetchColumn();
     </div>
     <div class="col-md-6">
         <h3 class="text-info">Total Profits : <?=$profit?> JOD</h3>
+        <h3 class="text-info">Total Profits this Year : <?=$profit_this_year?> JOD</h3>
+        <h3 class="text-info">Total Profits this month: <?=$profit_this_month?> JOD</h3>
     </div>
 </div>
 

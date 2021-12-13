@@ -29,11 +29,13 @@ include "auth.php";
         <li class="list-group-item pagelink">
             <a class="stretched-link text-decoration-none" href="../customers/index.php"> <i class="fas fa-users"></i>  Customers</a>
         </li>
-
         <?php 
              if(isAdmin()){?>
                 <li class="list-group-item pagelink">
                     <a class="stretched-link text-decoration-none" href="../categories"> <i class="fas fa-list"></i>  Categories</a>
+                </li>
+                 <li class="list-group-item pagelink">
+                    <a class="stretched-link text-decoration-none" href="../pricing"> <i class="fas fa-percentage"></i>  Pricing</a>
                 </li>
         <?php } ?>
 

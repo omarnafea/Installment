@@ -10,7 +10,7 @@ $(document).on('submit', '#add_category_form', function(event){
     let ajax_url = "ajax/add_category.php";
 
     if($("#category_id").val() !== '-1'){
-        ajax_url = "ajax/update_category.php"
+        ajax_url = "ajax/update_pricing.php"
     }
 
     $.ajax({
