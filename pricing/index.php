@@ -1,7 +1,7 @@
 <?php
 include('../db_connect.php');
 
-$query = "SELECT * FROM pricing_model"; // db query
+$query = "SELECT * FROM pricing_model ORDER by min_pay_value"; // db query
 $statement = $con->prepare($query);  // prepare query
 $statement->execute();
 $pricing_model = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -34,14 +34,14 @@ $pricing_model = $statement->fetchAll(PDO::FETCH_ASSOC);
     foreach ($pricing_model as $pricing){?>
 
         <div class="row pricing-row">
-            <div class="col-md-3">
+            <div class="col-md-3 <?=$pricing['min_pay_value'] == 0 ? 'd-none': ''?>">
                 <div class="form-group">
                     <label>Min pay value</label>
                     <input type="number" class="form-control min-value" value="<?=$pricing['min_pay_value']?>">
                 </div>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-3  <?=$pricing['max_pay_value'] == 0 ? 'd-none': ''?>">
                 <div class="form-group">
                     <label>Max pay value</label>
                     <input type="number" class="form-control max-value" value="<?=$pricing['max_pay_value']?>">
@@ -50,12 +50,12 @@ $pricing_model = $statement->fetchAll(PDO::FETCH_ASSOC);
 
             <div class="col-md-3">
                 <div class="form-group">
-                    <label>Percentage</label>
+                    <label><?=$pricing['min_pay_value'] == 0 ? 'Default percentage': 'Percentage'?></label>
                     <input type="number" class="form-control percentage" value="<?=$pricing['pricing_value']?>">
                 </div>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-3 <?=$pricing['min_pay_value'] == 0 ? 'd-none': ''?>">
                 <button class="btn btn-danger delete-btn"><i class="fa fa-times-circle"></i></button>
             </div>
 
