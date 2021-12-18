@@ -1,7 +1,9 @@
 
 
 $(document).ready(function () {
-   $("#orders_table").DataTable();
+   $("#orders_table").DataTable( {
+       "order": [[ 0, "desc" ]]
+   } );
 });
 
 var interval  , total_price = 0 , priceAfterRate;
@@ -76,7 +78,8 @@ $("#calc_pay_interval").click(function () {
 $(document).on('submit', '#add_order_form', function(event){
     event.preventDefault();
 
-    var data = {};
+    var data = new FormData(this);
+
 
     var customer_id = $("#customer_id").val();
 
@@ -102,11 +105,12 @@ $(document).on('submit', '#add_order_form', function(event){
 
     var notes = $("#notes").val();
 
-    data.customer_id = customer_id;
-    data.pay_value    = pay_value;
-    data.notes = notes;
-    data.interval = interval;
-    data.total_price = priceAfterRate;
+    // data.append('customer_id' , customer_id);
+    // data.append('pay_value' , pay_value);
+    // data.append('notes' , notes);
+    data.append('interval' , interval);
+    data.append('total_price' , priceAfterRate);
+
 
     var product_quantity = $(".qty");
 
@@ -131,16 +135,16 @@ $(document).on('submit', '#add_order_form', function(event){
         );
     }
 
-    data.products = products;
-
-
-    let ajax_url = "ajax/add_order.php";
+    // console.log(products);return;
+    data.append('products' , JSON.stringify(products));
 
     $.ajax({
-        url:ajax_url,
+        url:"ajax/add_order.php",
         method:'POST',
         data: data,
         dataType : "json",
+        contentType:false,
+        processData:false,
         success:function(data)
         {
             if(data.success){

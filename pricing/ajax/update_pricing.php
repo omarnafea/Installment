@@ -36,7 +36,7 @@ foreach ($_POST['pricing'] as $main_index => $main_pricing) {
         //check 20 50
 
         // main 20 50
-        // check 25 100  /// 25 >= 20 && 25<= 100
+        // check 25 100  /// 25 >= 20 && 25 <= 100
     }
 
 }

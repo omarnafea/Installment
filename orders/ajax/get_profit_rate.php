@@ -2,7 +2,7 @@
 include "../../db_connect.php";
 
 
-$statement = $con->prepare("SELECT pricing_value as profit_rate FROM pricing_model WHERE ? BETWEEN min_interval AND max_interval");  // prepare query
+$statement = $con->prepare("SELECT pricing_value as profit_rate FROM pricing_model WHERE ? BETWEEN min_pay_value AND max_pay_value");  // prepare query
 $statement->execute([$_POST['pay_value']]);
 $pricing_model = $statement->fetch(PDO::FETCH_ASSOC);
 

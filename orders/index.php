@@ -20,7 +20,7 @@ from orders as o
 INNER JOIN customers as c  ON c.customer_id = o.customer_id
 INNER JOIN users as u ON u.id = o.creator_id
 $customer_condition
-ORDER BY o.creation_date ASC
+ORDER BY o.order_id DESC
 "; // db query
 
 

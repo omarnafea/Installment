@@ -24,6 +24,9 @@ $pricing_model = $statement->fetchAll(PDO::FETCH_ASSOC);
 <body>
 <?php include "../include/navbar.php"?>
 <div class="container-fluid pt-5">
+    <?php
+    include "../include/dashboard.php";
+    ?>
     <h2 class="text-primary text-center mt-3">Pricing model</h2>
     <a href="javascript:;" class="btn btn-primary mb-2  add-pricing">Add pricing</a>
 

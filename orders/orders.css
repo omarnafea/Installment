@@ -40,3 +40,15 @@
     height: 500px;
     overflow-y: scroll;
 }
+
+.sponsor-row{
+    padding: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 2px solid #005cbf;
+    border-radius: 20px;
+}
+
+.sponsors-header {
+    color: #005cbf;
+}

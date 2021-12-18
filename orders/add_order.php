@@ -38,7 +38,7 @@ die;*/
     <form id="add_order_form">
     <div class="form-group col-md-3">
       <label>Select Customer</label>
-      <select class="form-control" name="customers" id="customer_id">
+      <select class="form-control" name="customer_id" id="customer_id">
          <option value="-1">Select Customer</option>
          <?php 
             foreach($customers as $customer){ ?>
@@ -46,7 +46,6 @@ die;*/
                 <?=$customer['name']?> / <?=$customer['mobile']?>
                 </option>
             <?php }?>
-
       </select>
     </div>
 
@@ -68,59 +67,84 @@ die;*/
             <?php }?>
         </div>
 
-        <div class="form-group d-none">
-              <label>Select Products</label>
-              <select class="form-control" id="select_products"  name="products" multiple>
-                 <?php
-                    foreach($products as $product){ ?>
-                        <option value="<?=$product['product_id']?>" class="product"
-                        data-price="<?=$product['price']?>">
-                        <?=$product['product_name']?> / <?=$product['price']?> JOD</option>
-                    <?php }?>
-              </select>
-        </div>
-
         <div class="products"></div>
 
-
         <div class="row">
-
             <div class="form-group col-md-4">
                 <label>Pay Value</label>
                 <input type="number" class="form-control" name="pay_value" id="pay_value">
             </div>
-
             <div class="col-md-4 align-self-center">
                 <button type="button" id="calc_pay_interval" class="btn btn-primary ">Calculate Pay Interval</button>
-
             </div>
         </div>
 
-
         <div class="row">
-
             <div class="col-md-6">
                 <div class="d-flex align-items-center">
                     <h4>Pay Interval : </h4>
                     <h6 id="pay_interval"> </h6>
                 </div>
             </div>
-
             <div class="col-md-6">
                 <div class="d-flex align-items-center">
                     <h4>Total: </h4>
                     <h6 id="total_price"> </h6>
                 </div>
             </div>
-
         </div>
-
-
         <div class="form-group d-none hidden-input">
                <label for="notes">Notes</label>
-              <textarea class="form-control" name="noted" rows="3" cols="40" id="notes" id="notes"></textarea>
+              <textarea class="form-control" name="notes" rows="3" cols="40"  id="notes"></textarea>
+         </div>
+        <div class="form-group d-none hidden-input">
+               <label for="notes">Promissory Note Image</label>
+              <input type="file"  class="form-control" name="promissory_note" required id="promissory_note"
+                     title="Promissory note" accept=".jpg , .png , .jpeg"/>
          </div>
 
+        <div class="sponsor-container">
+            <h3 class="sponsors-header">Sponsors</h3>
+
+            <div class="row sponsor-row">
+                <div class="col-md-6">
+                    <label>Sponsor Name</label>
+                    <input type="text" class="form-control sponsor-name" name="sponsor1_name">
+                </div>
+                <div class="col-md-6">
+                    <label>Sponsor Mobile</label>
+                    <input type="text" class="form-control sponsor-mobile" name="sponsor1_mobile">
+                </div>
+                <div class="col-md-6">
+                    <label>Sponsor ID</label>
+                    <input type="file" class="form-control sponsor-id" name="sponsor1_id" accept=".jpg , .png , .jpeg">
+                </div>
+                <div class="col-md-6">
+                    <label>Sponsor Contract</label>
+                    <input type="file" class="form-control sponsor-contract" name="sponsor1_contract" accept=".jpg , .png , .jpeg">
+                </div>
+            </div>
+
+            <div class="row sponsor-row">
+                <div class="col-md-6">
+                    <label>Sponsor Name</label>
+                    <input type="text" class="form-control sponsor-name" name="sponsor2_name">
+                </div>
+                <div class="col-md-6">
+                    <label>Sponsor Mobile</label>
+                    <input type="text" class="form-control sponsor-mobile" name="sponsor2_mobile">
+                </div>
+                <div class="col-md-6">
+                    <label>Sponsor ID</label>
+                    <input type="file" class="form-control sponsor-id" name="sponsor2_id" accept=".jpg , .png , .jpeg">
+                </div>
+                <div class="col-md-6">
+                    <label>Sponsor Contract</label>
+                    <input type="file" class="form-control sponsor-contract" name="sponsor2_contract" accept=".jpg , .png , .jpeg">
+                </div>
+            </div>
+
+        </div>
 
         <button type="submit"  class="submit-btn btn btn-success d-none  hidden-input"   id="test_btn">Save</button>
 

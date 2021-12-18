@@ -1,0 +1,17 @@
+
+.card img{
+    height: 180px;
+}
+
+.card h5{
+    font-size: 20px !important;
+    font-weight: bolder;
+}
+.card span{
+    font-size: 14px;
+}
+
+.products-container{
+    height: 500px;
+    overflow-y: scroll;
+}
