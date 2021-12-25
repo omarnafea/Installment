@@ -4,25 +4,19 @@ include "../../db_connect.php";
 session_start();
 
 
+$query = "SELECT o.pay_value  , o.price as price from orders as o WHERE o.order_id = ?"; // db query
+$statement = $con->prepare($query);  // prepare query
+$statement->execute([$_POST['order_id']]);
+$order= $statement->fetch(PDO::FETCH_ASSOC);
+
+
 $params = [
-    ":cachier_id"    => $_SESSION['user_id'],
     ":order_id"      => $_POST['order_id'],
     ":amount"        => $_POST['amount']
 ];
 
 
-$query = "SELECT o.pay_value , o.price as price from orders as o WHERE o.order_id = ?"; // db query
-$statement = $con->prepare($query);  // prepare query
-$statement->execute([$_POST['order_id']]);
-$order= $statement->fetch(PDO::FETCH_ASSOC);
-
-if(floatval($_POST['amount']) != $order['pay_value']){
-    die(json_encode(['success'=>false , 'message'=> 'Invalid amount'] ));
-}
-
-$statment = $con->prepare("INSERT INTO installments 
-                (cachier_id , order_id , amount) 
-                VALUES (:cachier_id , :order_id , :amount)");
+$statment = $con->prepare("INSERT INTO installments ( order_id , amount) VALUES ( :order_id , :amount)");
 $installment = $statment->execute($params);
 
 
@@ -38,5 +32,6 @@ if($order['price'] == $paidAmount['amount']){
         ":order_id"  => $_POST['order_id'],
     ]);
 }
+
 
 die(json_encode(['success'=>true , 'message'=> 'Amount paid successfully'] ));

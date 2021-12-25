@@ -16,16 +16,17 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
 <?php include "../include/customers_navbar.php"?>
-<h2 class="container-fluid pt-5 mt-5">
-
+<div class="container-fluid pt-5 mt-5">
     <div class="row">
-
         <div class="col-md-2">
-            <button class="btn btn-success">
+            <div class="form-group my-1">
+                <input type="number" class="form-control" name="pay_value" id="pay_value" placeholder="Pay Value">
+            </div>
+            <button class="btn btn-success" id="calc_pay_interval" style="width: 100%;">
                 Calculate
             </button>
-
         </div>
+
         <div class="col-md-10">
             <div class="row products-container">
             <?php
@@ -46,8 +47,9 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
     </div>
 </div>
 
-    <h2 class="text-center">Powered By Ghufran JUST</h2>
+    <h6 class="text-center mt-3" style="color: #702963;">Powered By Ghufran & Rahmeh</h6>
 </div>
+<script src="customer_site.js"></script>
 
 
 </body>
