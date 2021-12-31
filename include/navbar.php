@@ -2,6 +2,8 @@
 <?php
 session_start();
 
+include "auth.php";
+
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <a class="navbar-brand" href="../dashboard/index.php">
@@ -18,12 +20,27 @@ session_start();
             <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item active">
-                    <a class="nav-link dashboard-link" href="../dashboard">Dashboard <span class="sr-only">(current)</span></a>
+                    <a class="nav-link dashboard-link" href="../dashboard">DASHBOARD <span class="sr-only">(current)</span></a>
+                </li>
+
+
+                <?php
+                if(isAdmin() == true){?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../users">USERS</a>
+                    </li>
+
+                <?php } ?>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../products">PRODUCTS</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../users">users</a>
+                    <a class="nav-link" href="../orders">ORDERS</a>
                 </li>
+
+
             </ul>
 
             <ul class="navbar-nav ml-auto">

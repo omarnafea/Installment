@@ -28,7 +28,7 @@ die;
      <?php
        include "../include/dashboard.php";
       ?>
-    <h2 class="text-primary text-center mt-3">Products</h2>
+    <h2 class="text-primary text-center mt-5">Products</h2>
     <a href="add_product.php" class="btn btn-primary mb-2">Add New Product</a>
     <table id="customers_table" class="table table-bordered table-striped">
         <thead>

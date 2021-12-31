@@ -1,5 +1,4 @@
 <?php
-include "auth.php";
 ?>
 
 <div class="admin-dashboard">
@@ -18,13 +17,11 @@ include "auth.php";
               </li>
              <?php } ?>
 
-             <?php 
-             if(isAdmin()){?>
+
                <li class="list-group-item pagelink">
                  <a class="stretched-link text-decoration-none" href="../products"> <i class="fas fa-tag"></i>  Products</a>
               </li>
-             <?php } ?>
-       
+
 
         <li class="list-group-item pagelink">
             <a class="stretched-link text-decoration-none" href="../customers/index.php"> <i class="fas fa-users"></i>  Customers</a>

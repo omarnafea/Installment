@@ -57,6 +57,9 @@ if(floatval($paid_amount) < floatval($order['pay_value']) * floor($diff_in_month
 $is_canceled = $order['status'] == 'CANCELED';
 
 
+$is_active = $order['status'] == 'ACTIVE';
+
+
 $needToPay = false;
 
 ?>
@@ -139,9 +142,9 @@ $needToPay = false;
 
 <div class="container-fluid pt-5 mt-5">
 
-    <div class="row">
+    <div class="row <?php if($is_active == false) echo 'd-none'?>">
         <div class="col-lg-6 mx-auto">
-            <div class="card ">
+            <div class="card">
                 <div class="card-header">
                     <div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
                         <!-- Credit card form tabs -->

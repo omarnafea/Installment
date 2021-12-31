@@ -14,7 +14,7 @@
     <form  method="post" class="login-form">
         <div class="form-group">
             <label class="text-primary font-weight-bolder">Username</label>
-            <input type="text" id="mobile" placeholder="Enter your mobile" name="username" class="form-control">
+            <input type="text" id="username" placeholder="Enter your mobile" name="username" class="form-control">
         </div>
         <div class="form-group">
             <label class="text-primary font-weight-bolder">Password</label>

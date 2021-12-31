@@ -3,7 +3,6 @@
 include "../../db_connect.php";
 session_start();
 
-
 $params = [
     ":cachier_id"    => $_SESSION['user_id'],
     ":order_id"      => $_POST['order_id'],

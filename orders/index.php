@@ -49,7 +49,7 @@ $customers = $statement->fetchAll(PDO::FETCH_ASSOC);
     <?php
     include "../include/dashboard.php";
     ?>
-    <h2 class="text-primary text-center mt-3">Orders</h2>
+    <h2 class="text-primary text-center mt-5">Orders</h2>
 
     <div class="row">
         <div class="col-md-4">
@@ -127,8 +127,12 @@ $customers = $statement->fetchAll(PDO::FETCH_ASSOC);
                <td><?=$order['notes']?></td>
                <td><?=$order['creation_date']?></td>
                <td>
-                   <button class="btn btn-danger cancel"><i class="fas fa-trash-alt"></i></button>
-                   <a href="pay.php?order_id=<?=$order['order_id']?>"  class="btn btn-success"> <i class="fas fa-cash-register"></i></a>
+                   <?php
+                   if(isAdmin() == true){?>
+                       <button class="btn btn-danger cancel"><i class="fas fa-trash-alt"></i></button>
+                   <?php } ?>
+
+                   <a href="pay.php?order_id=<?=$order['order_id']?>"  class="btn btn-success">PAY <i class="fas fa-cash-register"></i></a>
                </td>
               </tr>
           <?php }?>
