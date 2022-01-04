@@ -104,13 +104,6 @@ die;*/
             <input  type="number" value="<?=$quantity?>" class="form-control" name="quantity" id="quantity"
                     placeholder="Enter quantity"  <?php if(!$update_mode) echo 'required' ?> >
         </div>
-        <?php 
-        if ($image !==''){?>
-        <a href="images/<?=$product['image']?>" target="_blank">
-                   <img src="images/<?=$product['image']?>" height="80" width="100" class="img-fluid">
-                     </a>
-<?php } ?>
-        
 
         <?php
           if($image !== ''){?>
