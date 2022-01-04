@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 30, 2021 at 04:35 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Host: 127.0.0.1:3306
+-- Generation Time: Jan 04, 2022 at 08:41 PM
+-- Server version: 5.7.26
+-- PHP Version: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -27,10 +28,13 @@ SET time_zone = "+00:00";
 -- Table structure for table `categories`
 --
 
-CREATE TABLE `categories` (
-  `category_id` int(11) NOT NULL,
-  `category_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `categories`;
+CREATE TABLE IF NOT EXISTS `categories` (
+  `category_id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`category_id`),
+  UNIQUE KEY `category_name` (`category_name`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `categories`
@@ -46,13 +50,16 @@ INSERT INTO `categories` (`category_id`, `category_name`) VALUES
 -- Table structure for table `customers`
 --
 
-CREATE TABLE `customers` (
-  `customer_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `customers`;
+CREATE TABLE IF NOT EXISTS `customers` (
+  `customer_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(155) NOT NULL,
   `email` varchar(50) NOT NULL,
   `mobile` varchar(14) NOT NULL,
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`customer_id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `customers`
@@ -70,12 +77,16 @@ INSERT INTO `customers` (`customer_id`, `name`, `email`, `mobile`, `password`) V
 -- Table structure for table `installments`
 --
 
-CREATE TABLE `installments` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `installments`;
+CREATE TABLE IF NOT EXISTS `installments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `order_id` int(11) NOT NULL,
   `cachier_id` int(11) DEFAULT NULL,
   `amount` decimal(8,2) NOT NULL,
-  `creation_date` datetime NOT NULL DEFAULT current_timestamp()
+  `creation_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `order_id` (`order_id`),
+  KEY `cachier_id` (`cachier_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -84,8 +95,9 @@ CREATE TABLE `installments` (
 -- Table structure for table `orders`
 --
 
-CREATE TABLE `orders` (
-  `order_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE IF NOT EXISTS `orders` (
+  `order_id` int(11) NOT NULL AUTO_INCREMENT,
   `creator_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
   `pay_interval` decimal(4,2) NOT NULL,
@@ -94,15 +106,20 @@ CREATE TABLE `orders` (
   `status` enum('ACTIVE','FINISHED','CANCELED','') NOT NULL DEFAULT 'ACTIVE',
   `notes` text NOT NULL,
   `promissory_note` varchar(300) NOT NULL,
-  `creation_date` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `pricing_model_id` int(11) DEFAULT NULL,
+  `creation_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`order_id`),
+  KEY `customer_id` (`customer_id`),
+  KEY `creator_id` (`creator_id`),
+  KEY `pricing_model_id` (`pricing_model_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `creator_id`, `customer_id`, `pay_interval`, `pay_value`, `price`, `status`, `notes`, `promissory_note`, `creation_date`) VALUES
-(1, 11, 1, '10.82', '200.00', '2163.00', 'CANCELED', '', '381049_huawei-y8s.jpg', '2021-12-30 17:15:28');
+INSERT INTO `orders` (`order_id`, `creator_id`, `customer_id`, `pay_interval`, `pay_value`, `price`, `status`, `notes`, `promissory_note`, `pricing_model_id`, `creation_date`) VALUES
+(1, 11, 1, '10.82', '200.00', '2163.00', 'ACTIVE', '', '381049_huawei-y8s.jpg', NULL, '2021-12-30 17:15:28');
 
 -- --------------------------------------------------------
 
@@ -110,11 +127,14 @@ INSERT INTO `orders` (`order_id`, `creator_id`, `customer_id`, `pay_interval`, `
 -- Table structure for table `orders_products`
 --
 
-CREATE TABLE `orders_products` (
+DROP TABLE IF EXISTS `orders_products`;
+CREATE TABLE IF NOT EXISTS `orders_products` (
   `order_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `quantity` int(4) NOT NULL,
-  `sub_price` decimal(8,2) NOT NULL
+  `sub_price` decimal(8,2) NOT NULL,
+  PRIMARY KEY (`product_id`,`order_id`),
+  KEY `order_id` (`order_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -131,12 +151,14 @@ INSERT INTO `orders_products` (`order_id`, `product_id`, `quantity`, `sub_price`
 -- Table structure for table `pricing_model`
 --
 
-CREATE TABLE `pricing_model` (
-  `pricing_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `pricing_model`;
+CREATE TABLE IF NOT EXISTS `pricing_model` (
+  `pricing_id` int(11) NOT NULL AUTO_INCREMENT,
   `min_pay_value` int(5) NOT NULL,
   `max_pay_value` int(5) NOT NULL,
-  `pricing_value` decimal(2,2) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `pricing_value` decimal(2,2) NOT NULL,
+  PRIMARY KEY (`pricing_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=77 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `pricing_model`
@@ -155,10 +177,12 @@ INSERT INTO `pricing_model` (`pricing_id`, `min_pay_value`, `max_pay_value`, `pr
 -- Table structure for table `privileges`
 --
 
-CREATE TABLE `privileges` (
-  `id` int(11) NOT NULL,
-  `privilege` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `privileges`;
+CREATE TABLE IF NOT EXISTS `privileges` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `privilege` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `privileges`
@@ -174,14 +198,18 @@ INSERT INTO `privileges` (`id`, `privilege`) VALUES
 -- Table structure for table `products`
 --
 
-CREATE TABLE `products` (
-  `product_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `products`;
+CREATE TABLE IF NOT EXISTS `products` (
+  `product_id` int(11) NOT NULL AUTO_INCREMENT,
   `product_name` varchar(100) NOT NULL,
   `quantity` int(5) NOT NULL,
   `cat_id` int(11) NOT NULL,
   `image` varchar(255) NOT NULL,
-  `price` decimal(8,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `price` decimal(8,2) NOT NULL,
+  PRIMARY KEY (`product_id`),
+  UNIQUE KEY `product_name` (`product_name`),
+  KEY `cat_id` (`cat_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `products`
@@ -212,12 +240,14 @@ INSERT INTO `products` (`product_id`, `product_name`, `quantity`, `cat_id`, `ima
 -- Table structure for table `sponsors`
 --
 
-CREATE TABLE `sponsors` (
+DROP TABLE IF EXISTS `sponsors`;
+CREATE TABLE IF NOT EXISTS `sponsors` (
   `order_id` int(11) NOT NULL,
   `sponsor_id_image` varchar(300) NOT NULL,
   `sponsor_name` varchar(255) NOT NULL,
   `sponsor_mobile` varchar(15) NOT NULL,
-  `sponsor_contract` varchar(300) NOT NULL
+  `sponsor_contract` varchar(300) NOT NULL,
+  KEY `order_id` (`order_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -234,15 +264,18 @@ INSERT INTO `sponsors` (`order_id`, `sponsor_id_image`, `sponsor_name`, `sponsor
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `user_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `privilege_id` int(11) NOT NULL,
-  `is_active` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `is_active` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `privilege_id` (`privilege_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
@@ -255,129 +288,30 @@ INSERT INTO `users` (`id`, `name`, `user_name`, `email`, `password`, `privilege_
 (12, 'ahmad', 'ahmad', 'ahmad@gmail.cpom', '4a6db2314c199446c0e2d3e48e30295622c96639', 2, 1);
 
 --
--- Indexes for dumped tables
---
-
---
--- Indexes for table `categories`
---
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`category_id`),
-  ADD UNIQUE KEY `category_name` (`category_name`);
-
---
--- Indexes for table `customers`
---
-ALTER TABLE `customers`
-  ADD PRIMARY KEY (`customer_id`),
-  ADD UNIQUE KEY `email` (`email`);
-
---
--- Indexes for table `installments`
---
-ALTER TABLE `installments`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `orders`
---
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`order_id`);
-
---
--- Indexes for table `orders_products`
---
-ALTER TABLE `orders_products`
-  ADD PRIMARY KEY (`product_id`,`order_id`);
-
---
--- Indexes for table `pricing_model`
---
-ALTER TABLE `pricing_model`
-  ADD PRIMARY KEY (`pricing_id`);
-
---
--- Indexes for table `privileges`
---
-ALTER TABLE `privileges`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `products`
---
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`product_id`),
-  ADD UNIQUE KEY `product_name` (`product_name`),
-  ADD KEY `cat_id` (`cat_id`);
-
---
--- Indexes for table `sponsors`
---
-ALTER TABLE `sponsors`
-  ADD KEY `order_id` (`order_id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `privilege_id` (`privilege_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `categories`
---
-ALTER TABLE `categories`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `customers`
---
-ALTER TABLE `customers`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `installments`
---
-ALTER TABLE `installments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `orders`
---
-ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `pricing_model`
---
-ALTER TABLE `pricing_model`
-  MODIFY `pricing_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
-
---
--- AUTO_INCREMENT for table `privileges`
---
-ALTER TABLE `privileges`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `products`
---
-ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `installments`
+--
+ALTER TABLE `installments`
+  ADD CONSTRAINT `installments_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`),
+  ADD CONSTRAINT `installments_ibfk_2` FOREIGN KEY (`cachier_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`),
+  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`creator_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `orders_ibfk_3` FOREIGN KEY (`pricing_model_id`) REFERENCES `pricing_model` (`pricing_id`);
+
+--
+-- Constraints for table `orders_products`
+--
+ALTER TABLE `orders_products`
+  ADD CONSTRAINT `orders_products_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`),
+  ADD CONSTRAINT `orders_products_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
 
 --
 -- Constraints for table `products`

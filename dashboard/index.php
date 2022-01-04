@@ -55,6 +55,7 @@ $orders = $statement->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <title>Dashboard</title>
     <meta charset="utf-8"/>
+    <link rel="stylesheet" href="dashboard.css">
     <?php include "../include/header.php";?>
 </head>
 
@@ -72,7 +73,7 @@ $orders = $statement->fetchAll(PDO::FETCH_ASSOC);
  if(isAdmin()){?>
      <div class="row">
          <div class="col-md-6">
-             <h3 class="text-info">Amount that cashiers received</h3>
+             <h4 class="text-info">Amount that cashiers received</h4>
              <table id="categories_table" class="table table-bordered table-striped">
                  <thead>
                  <tr>
@@ -97,15 +98,16 @@ $orders = $statement->fetchAll(PDO::FETCH_ASSOC);
              </table>
          </div>
          <div class="col-md-6">
-             <h3 class="text-info">Total Profits : <?=$profit?> JOD</h3>
-             <h3 class="text-info">Total Profits this Year : <?=$profit_this_year?> JOD</h3>
-             <h3 class="text-info">Total Profits this month: <?=$profit_this_month?> JOD</h3>
+             <h4> <span class="text-info">Total Profits :</span>
+                 <span class="text-danger"><?=$profit?><small>JOD</small></span></h4>
+             <h4> <span class="text-info">Total Profits this Year :</span>  <span class="text-danger"><?=$profit_this_year?><small>JOD</small></span></h4>
+             <h4> <span class="text-info">Total Profits this month: </span> <span class="text-danger"><?=$profit_this_month?><small>JOD</small></span></h4>
          </div>
      </div>
 
  <?php }?>
 
-    <h2 class="text-info text-center">Last 5 Orders</h2>
+    <h3 class="text-info text-center mt-5">Last 5 Orders</h3>
     <table id="orders_table" class="table table-bordered table-striped">
         <thead>
         <tr>
@@ -165,7 +167,7 @@ $orders = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <td>
                     <?php
                     if(isAdmin() == true){?>
-                        <button class="btn btn-danger cancel"><i class="fas fa-trash-alt"></i></button>
+                        <button class="btn btn-danger cancel mb-1"><i class="fas fa-trash-alt"></i></button>
                     <?php } ?>
 
                     <a href="pay.php?order_id=<?=$order['order_id']?>"  class="btn btn-success">PAY <i class="fas fa-cash-register"></i></a>

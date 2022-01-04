@@ -106,7 +106,7 @@ die;*/
         <div class="sponsor-container">
             <h3 class="sponsors-header">Sponsors</h3>
 
-            <div class="row sponsor-row">
+            <div class="row sponsor-row  d-none hidden-input">
                 <div class="col-md-6">
                     <label>Sponsor Name</label>
                     <input type="text" class="form-control sponsor-name" name="sponsor1_name">
@@ -125,7 +125,7 @@ die;*/
                 </div>
             </div>
 
-            <div class="row sponsor-row">
+            <div class="row sponsor-row  d-none hidden-input">
                 <div class="col-md-6">
                     <label>Sponsor Name</label>
                     <input type="text" class="form-control sponsor-name" name="sponsor2_name">
@@ -146,7 +146,9 @@ die;*/
 
         </div>
 
-        <button type="submit"  class="submit-btn btn btn-success d-none  hidden-input"   id="test_btn">Save</button>
+        <div class="text-center my-2">
+            <button type="submit"  class="submit-btn btn btn-success d-none  hidden-input"   id="test_btn">Save</button>
+        </div>
 
     </form>
 </div>

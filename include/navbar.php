@@ -7,7 +7,7 @@ include "auth.php";
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <a class="navbar-brand" href="../dashboard/index.php">
-        <img src="../products/images/logo.jpeg" width="100" height="75" alt="logo"/>
+        <img src="../products/images/logo.jpeg" width="45" height="45" alt="logo" class="img-fluid"/>
     </a>
 
     <a class="nav-link dashboard-list close" href="#"><i class="fas fa-list fa-xs"></i></a>

@@ -37,8 +37,12 @@ echo '</pre>';die;
 <?php include "../include/navbar.php"?>
 
 <div class="container-fluid pt-5">
+    <?php
+    include "../include/dashboard.php";
+    ?>
 
-<div class="main-form">
+
+    <div class="main-form">
 
 
          <?php 

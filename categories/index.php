@@ -24,6 +24,11 @@ die;
 <body>
 <?php include "../include/navbar.php"?>
 <div class="container-fluid pt-5">
+
+    <?php
+    include "../include/dashboard.php";
+    ?>
+
     <h2 class="text-primary text-center mt-3">categories</h2>
     <a href="add_category.php" class="btn btn-primary mb-2">Add New category</a>
     <table id="categories_table" class="table table-bordered table-striped">

@@ -12,6 +12,15 @@ $("#calc_pay_interval").click(function () {
     total_price= 0;
     var products =$(".qty");
 
+    if(products.length < 1){
+        Swal.fire({
+            icon: 'warning',
+            title: 'Please select at least one product',
+            text: ""
+        });
+        return false;
+    }
+
     var qty , price ;
 
     for(var i = 0 ; i < products.length  ; i++ ){
@@ -52,10 +61,6 @@ $("#calc_pay_interval").click(function () {
 
              priceAfterRate = total_price + (total_price * profitRate);
              interval  = parseFloat(priceAfterRate / payValue) ;
-
-             console.log(total_price);
-             console.log(priceAfterRate);
-             console.log(interval);
 
 
              var days = (interval - Math.floor(interval)) * 30;
