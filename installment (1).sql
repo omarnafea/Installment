@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 04, 2022 at 08:41 PM
+-- Generation Time: Jan 07, 2022 at 12:46 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.5
 
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `customers` (
 --
 
 INSERT INTO `customers` (`customer_id`, `name`, `email`, `mobile`, `password`) VALUES
-(1, 'ghufran', 'ghufran@gmail.com', '0786713023', 'omr'),
+(1, 'ghufran', 'ghufran@gmail.com', '0786713023', 'fecde534a1fb2618f416e50c2638462cbfea19dc'),
 (3, 'rahma', 'rahma@gmail.com', '0785402596', '2aacd646f0e6ae4438858985a9260cc71d56b183'),
 (5, 'ahmad', 'ahmad@gmail.com', '0799548663', '60169fac724e938050c9282a63bcf24ae3c8b7ff'),
 (6, 'anwar', 'anwar@gmail.com', '0795496668', 'fecde534a1fb2618f416e50c2638462cbfea19dc');
@@ -87,7 +87,14 @@ CREATE TABLE IF NOT EXISTS `installments` (
   PRIMARY KEY (`id`),
   KEY `order_id` (`order_id`),
   KEY `cachier_id` (`cachier_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `installments`
+--
+
+INSERT INTO `installments` (`id`, `order_id`, `cachier_id`, `amount`, `creation_date`) VALUES
+(1, 1, NULL, '200.00', '2022-01-04 23:34:14');
 
 -- --------------------------------------------------------
 
@@ -112,14 +119,15 @@ CREATE TABLE IF NOT EXISTS `orders` (
   KEY `customer_id` (`customer_id`),
   KEY `creator_id` (`creator_id`),
   KEY `pricing_model_id` (`pricing_model_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `orders`
 --
 
 INSERT INTO `orders` (`order_id`, `creator_id`, `customer_id`, `pay_interval`, `pay_value`, `price`, `status`, `notes`, `promissory_note`, `pricing_model_id`, `creation_date`) VALUES
-(1, 11, 1, '10.82', '200.00', '2163.00', 'ACTIVE', '', '381049_huawei-y8s.jpg', NULL, '2021-12-30 17:15:28');
+(1, 11, 1, '10.82', '200.00', '2163.00', 'ACTIVE', '', '381049_huawei-y8s.jpg', NULL, '2021-12-30 17:15:28'),
+(2, 11, 3, '3.65', '100.00', '365.20', 'ACTIVE', '', '799136_download(1).png', NULL, '2022-01-07 13:32:36');
 
 -- --------------------------------------------------------
 
@@ -142,6 +150,7 @@ CREATE TABLE IF NOT EXISTS `orders_products` (
 --
 
 INSERT INTO `orders_products` (`order_id`, `product_id`, `quantity`, `sub_price`) VALUES
+(2, 1, 2, '332.00'),
 (1, 8, 1, '290.00'),
 (1, 11, 2, '1770.00');
 
@@ -216,7 +225,7 @@ CREATE TABLE IF NOT EXISTS `products` (
 --
 
 INSERT INTO `products` (`product_id`, `product_name`, `quantity`, `cat_id`, `image`, `price`) VALUES
-(1, ' Huawei Nova 7i', 20, 1, '212332_huawei-nova-7i.jpg', '166.00'),
+(1, ' Huawei Nova 7i', 18, 1, '212332_huawei-nova-7i.jpg', '166.00'),
 (2, 'Huawei Y9a', 25, 1, '32371_huawei-y9a-1.jpg', '170.00'),
 (3, 'Huawei P30 Lite', 15, 1, '367082_huawei-p30-lite.jpg', '165.00'),
 (4, ' Huawei Nova 9 pro', 20, 1, '402246_huawei-nova-9.jpg', '410.00'),
@@ -256,7 +265,9 @@ CREATE TABLE IF NOT EXISTS `sponsors` (
 
 INSERT INTO `sponsors` (`order_id`, `sponsor_id_image`, `sponsor_name`, `sponsor_mobile`, `sponsor_contract`) VALUES
 (1, '794389_aceraspire3a315-53g-58c7.jpg', 'Rahma', '0782524322', '846983_acer-aspire-es1-522_84ca.jpg'),
-(1, '463065_aceraspiree5-576g-57zt.jpg', 'ali', '077854210', '920366_acer-aspire-3-a315-53g.png');
+(1, '463065_aceraspiree5-576g-57zt.jpg', 'ali', '077854210', '920366_acer-aspire-3-a315-53g.png'),
+(2, '542152_download.png', 's1', '079548448', '866920_downloassd.jpg'),
+(2, '871759_download.png', 's2', '079549964', '724880_downloassd.jpg');
 
 -- --------------------------------------------------------
 
