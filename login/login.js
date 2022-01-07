@@ -1,5 +1,7 @@
 
-$(document).on('click', '#btn_login', function(){
+$(document).on('submit', '#login_form', function(event){
+
+    event.preventDefault();
 
     var username = $("#username").val();
     var password = $("#password").val();

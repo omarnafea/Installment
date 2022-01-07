@@ -13,16 +13,10 @@ AND o.order_id = ?");  // prepare query
 $statement->execute([$_GET['order_id']]);
 $order = $statement->fetch(PDO::FETCH_ASSOC);
 
-
-
 $creation_date = strtotime($order['creation_date']) * 1000;
 $current_time =  microtime(true) * 1000;
 
-
 $time_diff = $current_time - $creation_date;
-
-
-
 
 $diff_in_month = $time_diff / 1000 / 60 / 60 / 24 / 30;
 $paid_amount = $order['sum_paid'];
@@ -34,8 +28,8 @@ if(floatval($paid_amount) < floatval($order['pay_value']) * floor($diff_in_month
 }
 
 $is_canceled = $order['status'] == 'CANCELED';
-//todo check if the order finished
-//
+$is_finished = $order['status'] == 'FINISHED';
+
 //echo '<pre>';
 //print_r($order);
 //echo '</pre>';
@@ -91,7 +85,7 @@ $is_canceled = $order['status'] == 'CANCELED';
     </div>
 
 <?php
-if($is_canceled == false){?>
+if($is_canceled == false && $is_finished == false){?>
     <div class="main-form">
         <form id="pay_form" class="">
             <div class="form-group">

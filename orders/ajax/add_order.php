@@ -47,11 +47,12 @@ foreach ($products as $order_product){
                 (order_id , product_id , quantity , sub_price) 
                 VALUES (:order_id , :product_id , :quantity , :sub_price)");
      $statment->execute($params);
+
+    $statment = $con->prepare("UPDATE products set quantity = quantity  - ? where product_id =  ?");
+    $statment->execute([$order_product['quantity'] , $order_product['product_id']]);
 }
-//todo decrease product quantity
 
 
-//todo add sponsors
 $sponsor1_name = $_POST['sponsor1_name'];
 $sponsor2_name = $_POST['sponsor2_name'];
 $sponsor1_mobile = $_POST['sponsor1_mobile'];

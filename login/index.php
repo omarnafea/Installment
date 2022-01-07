@@ -11,7 +11,7 @@
 
 <div class="login-page col-md-4 mx-auto pt-5">
     <h2 class="text-primary text-center font-weight-bolder">Login</h2>
-    <form  method="post" class="login-form">
+    <form  method="post" class="login-form" id="login_form">
         <div class="form-group">
             <label class="text-primary font-weight-bolder">Username</label>
             <input type="text" id="username" placeholder="Enter your mobile" name="username" class="form-control">
@@ -22,7 +22,7 @@
         </div>
 
         <div class="text-center">
-            <input type="button" id="btn_login" value="Login" name="login" class="btn btn-primary" >
+            <input type="submit" id="btn_login" value="Login" name="login" class="btn btn-primary" >
         </div>
     </form>
 

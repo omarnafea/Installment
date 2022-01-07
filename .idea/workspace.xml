@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68a816f9-1c6e-4624-83c2-352c3d48e296" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/customer_site/customer_site.css" beforeDir="false" afterPath="$PROJECT_DIR$/customer_site/customer_site.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products/add_product.php" beforeDir="false" afterPath="$PROJECT_DIR$/products/add_product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/customers_navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/include/customers_navbar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/login/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/login/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orders/ajax/add_order.php" beforeDir="false" afterPath="$PROJECT_DIR$/orders/ajax/add_order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orders/pay.php" beforeDir="false" afterPath="$PROJECT_DIR$/orders/pay.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,20 +18,65 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/customer_site/index.php">
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
-              <caret line="30" column="32" lean-forward="true" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="32" />
+            <state relative-caret-position="85">
+              <caret line="5" column="40" lean-forward="true" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="customer_site.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/customer_site/customer_site.css">
+      <file leaf-file-name="customers.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/customers/customers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="11" lean-forward="true" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+            <state relative-caret-position="102">
+              <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="127">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add_order.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/orders/ajax/add_order.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navbar.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/navbar.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pay.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/orders/pay.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="23" column="16" lean-forward="true" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="customers_navbar.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/customers_navbar.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
             </state>
           </provider>
         </entry>
@@ -56,6 +105,7 @@
       <find>$statement</find>
       <find>btn-select</find>
       <find>$order</find>
+      <find>todo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -66,7 +116,6 @@
       <list>
         <option value="$PROJECT_DIR$/login/login_ajax.php" />
         <option value="$PROJECT_DIR$/login/login.css" />
-        <option value="$PROJECT_DIR$/login/login.js" />
         <option value="$PROJECT_DIR$/include/header.php" />
         <option value="$PROJECT_DIR$/users/usres.css" />
         <option value="$PROJECT_DIR$/users/users.css" />
@@ -77,7 +126,6 @@
         <option value="$PROJECT_DIR$/categories/pay.css" />
         <option value="$PROJECT_DIR$/orders/pay.css" />
         <option value="$PROJECT_DIR$/orders/pay.js" />
-        <option value="$PROJECT_DIR$/orders/pay.php" />
         <option value="$PROJECT_DIR$/assets/css/main.css" />
         <option value="$PROJECT_DIR$/orders/ajax/cancel.php" />
         <option value="$PROJECT_DIR$/users/users.js" />
@@ -89,19 +137,16 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/pricing/ajax/update_pricing.php" />
         <option value="$PROJECT_DIR$/pricing/index.php" />
-        <option value="$PROJECT_DIR$/orders/ajax/add_order.php" />
         <option value="$USER_HOME$/Desktop/ma7ale.php" />
         <option value="$PROJECT_DIR$/customer_site/logout.php" />
         <option value="$PROJECT_DIR$/customer_site/ajax/login.php" />
         <option value="$PROJECT_DIR$/customer_site/my_orders.php" />
         <option value="$PROJECT_DIR$/customer_site/login.php" />
-        <option value="$PROJECT_DIR$/include/customers_navbar.php" />
         <option value="$PROJECT_DIR$/customer_site/index.php" />
         <option value="$PROJECT_DIR$/customer_site/customer_site.js" />
         <option value="$PROJECT_DIR$/customer_site/ajax/pay.php" />
         <option value="$PROJECT_DIR$/orders/ajax/pay.php" />
         <option value="$PROJECT_DIR$/customer_site/pay.php" />
-        <option value="$PROJECT_DIR$/login/index.php" />
         <option value="$PROJECT_DIR$/products/index.php" />
         <option value="$PROJECT_DIR$/orders/index.php" />
         <option value="$PROJECT_DIR$/include/dashboard.php" />
@@ -115,6 +160,11 @@
         <option value="$PROJECT_DIR$/orders/add_order.php" />
         <option value="$PROJECT_DIR$/products/add_product.php" />
         <option value="$PROJECT_DIR$/customer_site/customer_site.css" />
+        <option value="$PROJECT_DIR$/login/login.js" />
+        <option value="$PROJECT_DIR$/login/index.php" />
+        <option value="$PROJECT_DIR$/orders/ajax/add_order.php" />
+        <option value="$PROJECT_DIR$/include/customers_navbar.php" />
+        <option value="$PROJECT_DIR$/orders/pay.php" />
       </list>
     </option>
   </component>
@@ -138,7 +188,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -149,12 +198,13 @@
             <path>
               <item name="Installment" type="b2602c69:ProjectViewProjectNode" />
               <item name="Installment" type="462c0819:PsiDirectoryNode" />
-              <item name="customer_site" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -230,35 +280,37 @@
       <workItem from="1641243096795" duration="1754000" />
       <workItem from="1641291525387" duration="2659000" />
       <workItem from="1641308589251" duration="1663000" />
+      <workItem from="1641466086382" duration="55000" />
+      <workItem from="1641554339814" duration="1642000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119150000" />
+    <option name="totallyTimeSpent" value="120847000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.1671141" />
       <window_info anchor="bottom" id="TODO" order="11" />
-      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="4" />
       <window_info anchor="bottom" id="Run" order="7" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="4" />
       <window_info anchor="bottom" id="Terminal" order="3" />
-      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.17114094" />
+      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="0" />
+      <window_info anchor="bottom" id="Find" order="6" weight="0.0" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
+      <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="6" weight="0.0" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
@@ -289,13 +341,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/categories/ajax/update_category.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="25" column="86" lean-forward="true" selection-start-line="5" selection-end-line="25" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
@@ -382,13 +427,6 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Desktop/ma7ale.php" />
-    <entry file="file://$PROJECT_DIR$/orders/ajax/add_order.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -445,13 +483,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/customers_navbar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/customer_site/login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -473,31 +504,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/orders/pay.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1547">
-          <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/customer_site/customer_site.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1462">
           <caret line="86" column="11" selection-start-line="86" selection-start-column="11" selection-end-line="86" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="18" column="32" lean-forward="true" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="21" lean-forward="true" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -585,13 +595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/navbar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/products/add_product.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="178">
@@ -620,17 +623,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/customer_site/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="30" column="32" lean-forward="true" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/customer_site/customer_site.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="11" lean-forward="true" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customer_site/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="30" column="32" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/customers/customers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="40" lean-forward="true" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/orders/ajax/add_order.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/customers_navbar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/navbar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/orders/pay.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="16" lean-forward="true" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
         </state>
       </provider>
     </entry>

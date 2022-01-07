@@ -7,7 +7,7 @@ session_start();
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <a class="navbar-brand" href="../dashboard/index.php">
-        <img src="../products/images/logo.jpeg" width="100" height="75" alt="logo"/>
+        <img src="../products/images/logo.jpeg" width="45" height="45" alt="logo" class="img-fluid"/>
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,9 +22,7 @@ session_start();
                     <a class="nav-link dashboard-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="../users">Products</a>
-                </li>
+
 
                 <?php
                 if(!isset($_SESSION['customer_id'])){?>
