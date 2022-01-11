@@ -22,6 +22,18 @@ if(count($check_installments) > 0 ){
     die(json_encode(['success'=>false , 'message'=>'You cannot cancel this order']));
 }
 
+
+$query = "SELECT * FROM orders_products WHERE order_id = ?"; // db query
+$statement = $con->prepare($query);  // prepare query
+$statement->execute([$order_id]);
+$order_products = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+foreach ($order_products as $order_product ){
+    $statment = $con->prepare("UPDATE products set quantity = quantity  + ? where product_id =  ?");
+    $statment->execute([$order_product['quantity'] , $order_product['product_id']]);
+}
+
+
 $update = $con->prepare("UPDATE orders set status = 'CANCELED' where order_id =:order_id");
 $update->execute([
     ":order_id"         =>$order_id
