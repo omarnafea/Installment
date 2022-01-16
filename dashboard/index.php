@@ -123,7 +123,6 @@ $orders = $statement->fetchAll(PDO::FETCH_ASSOC);
             <th scope="col">Pay Value</th>
             <th scope="col">Notes</th>
             <th scope="col">Date</th>
-            <th scope="col">Action</th>
         </tr>
         </thead>
         <tbody>
@@ -164,14 +163,6 @@ $orders = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <td><?=$order['pay_value']?>JOD</td>
                 <td><?=$order['notes']?></td>
                 <td><?=$order['creation_date']?></td>
-                <td>
-                    <?php
-                    if(isAdmin() == true){?>
-                        <button class="btn btn-danger cancel mb-1"><i class="fas fa-trash-alt"></i></button>
-                    <?php } ?>
-
-                    <a href="pay.php?order_id=<?=$order['order_id']?>"  class="btn btn-success">PAY <i class="fas fa-cash-register"></i></a>
-                </td>
             </tr>
         <?php }?>
         </tbody>
