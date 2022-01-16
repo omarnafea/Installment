@@ -17,6 +17,9 @@ if(is_array($check_customer)){
 
 
 
+if(!is_numeric($_POST['mobile']) || strlen($_POST['mobile']) !== 10){
+    die(json_encode(['success'=>false , 'message'=>'Invalid mobile']));
+}
 
 $params = [
     ":name"     => $_POST['name'],

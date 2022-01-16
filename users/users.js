@@ -40,6 +40,12 @@ $(document).on('submit', '#user_add_form', function(event){
                    window.location.href = "index.php";
                });
 
+           }else{
+            Swal.fire({
+                icon: 'warning',
+                title: '',
+                text: data.message
+            });
            }
         }
     });

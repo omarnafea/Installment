@@ -5,6 +5,9 @@ include('../../db_connect.php');
 
 //print_r($_POST);die;
 
+if($_POST['password'] != $_POST['confirm_password']){
+    die(json_encode(['success' => false , 'message'=>'Passwords not matches'] ));
+}
 
 $statement = $con->prepare("
    INSERT INTO users (name, email,user_name,password,privilege_id) 

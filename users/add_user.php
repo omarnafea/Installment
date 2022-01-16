@@ -65,7 +65,7 @@ if(isset($_GET['user_id'])){
     include "../include/dashboard.php";
     ?>
     <div class="main-form">
-        <h2 class="text-primary text-center mt-3">Add New User</h2>
+        <h2 class="text-primary text-center mt-3"><?=$update_mode ? "Update user" : "Add New User"?></h2>
 
         <form method="post" id="user_add_form" enctype="multipart/form-data">
           
@@ -76,7 +76,7 @@ if(isset($_GET['user_id'])){
             </div>
 
             <div class="form-group">
-                <label> User Name</label>
+                <label> Username</label>
                 <input type="Text" value="<?=$user_name?>" class="form-control" id="user_name" name="user_name" placeholder="Enter user username" required>
             </div>
 
@@ -88,6 +88,10 @@ if(isset($_GET['user_id'])){
             <div class="form-group">
                 <label> Password</label>
                 <input type="password" class="form-control" id="password"  autocomplete="new-password" name="password" placeholder="Enter user password" >
+            </div>
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" class="form-control" id="confirm_password"  autocomplete="new-password" name="confirm_password" placeholder="Confirm password" >
             </div>
 
 

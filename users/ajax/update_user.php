@@ -14,6 +14,11 @@ $params =    array(
 );
 
 if(trim($_POST['password'])  !== ""){
+    
+if($_POST['password'] != $_POST['confirm_password']){
+    die(json_encode(['success' => false , 'message'=>'Passwords not matches'] ));
+}
+
     $pass=',password = :password';
     $params[':password'] = sha1($_POST["password"]);
 }
