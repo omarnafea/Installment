@@ -16,6 +16,9 @@ if(is_array($check_customer) ){
 }
 
 
+if(!is_numeric($_POST['mobile']) || strlen($_POST['mobile']) !== 10){
+    die(json_encode(['success'=>false , 'message'=>'Invalid mobile']));
+}
 
 $update = $con->prepare("UPDATE customers set name = :name , email = :email , mobile = :mobile WHERE customer_id = :customer_id");
 $update->execute([
