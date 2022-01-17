@@ -58,6 +58,16 @@ $sponsor2_name = $_POST['sponsor2_name'];
 $sponsor1_mobile = $_POST['sponsor1_mobile'];
 $sponsor2_mobile = $_POST['sponsor2_mobile'];
 
+
+
+if(!is_numeric($_POST['sponsor1_mobile']) || strlen($_POST['sponsor1_mobile']) !== 10){
+    die(json_encode(['success'=>false , 'message'=>'Invalid Sponsor 1 mobile']));
+}
+
+if(!is_numeric($_POST['sponsor2_mobile']) || strlen($_POST['sponsor2_mobile']) !== 10){
+    die(json_encode(['success'=>false , 'message'=>'Invalid Sponsor 2 mobile']));
+}
+
 $sponsor1_id = upload_image($_FILES['sponsor1_id']);
 if($sponsor1_id['success'] !== true){
     die(json_encode($sponsor1_id));

@@ -62,18 +62,65 @@ $("#calc_pay_interval").click(function () {
              priceAfterRate = total_price + (total_price * profitRate);
              interval  = parseFloat(priceAfterRate / payValue) ;
 
+             console.log('interval before  : ' , interval);
+             interval = Math.ceil(interval);
+
+             console.log('interval  after : ' , interval);
 
              var days = (interval - Math.floor(interval)) * 30;
              var months= Math.floor(interval);
 
             var interval_text = months + " M " ;
-
             if(days != 0)
                 interval_text += Math.round(days)  + " D";
             $("#pay_interval").html(interval_text);
 
             $("#total_price").html(priceAfterRate+ ' JOD' );
             $(".hidden-input").removeClass('d-none');
+
+            //todo after we get the profits we must display in a table the payment schedule
+            //17-02-2022 500
+            //17-03-2022 67
+
+            var schedule = [] , priceTmp = total_price + (total_price * profitRate);
+            let i = 1;
+            while(priceTmp !== 0){
+
+                let d = new Date();
+                d.setMonth(d.getMonth() + i);
+
+                let NextDayTemp = d;
+                i++;
+                let newSchedule = {};
+                let dateString = d.toLocaleDateString();
+
+                console.log(d.toLocaleDateString());
+                if(priceTmp < payValue){
+                    newSchedule['date'] = dateString;
+                    newSchedule['amount'] = priceTmp;
+                    priceTmp  = 0;
+                }else{
+                    newSchedule['date'] = dateString;
+                    newSchedule['amount'] = payValue;
+
+                    priceTmp   -= payValue;
+                }
+
+                $("#schedule_table tbody").append(`
+                
+                   <tr>
+                         <td>${newSchedule.date}</td>
+                         <td>${newSchedule.amount}</td>
+                         
+                   </tr>
+                `);
+                schedule.push(newSchedule);
+                console.log(schedule);
+            }
+
+
+
+
 
         }
     });

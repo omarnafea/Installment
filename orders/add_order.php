@@ -77,6 +77,22 @@ die;*/
             <div class="col-md-4 align-self-center">
                 <button type="button" id="calc_pay_interval" class="btn btn-primary ">Calculate Pay Interval</button>
             </div>
+
+             <div class="col-md-4 mt-2">
+                 <table id="schedule_table" class="table table-bordered table-striped">
+                     <thead>
+                     <tr>
+                         <th scope="col">Date</th>
+                         <th scope="col">Amount</th>
+                     </thead>
+                     <tbody>
+
+                     </tbody>
+                 </table>
+
+            </div>
+
+
         </div>
 
         <div class="row">
