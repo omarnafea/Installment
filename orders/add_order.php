@@ -74,7 +74,7 @@ die;*/
                 <label>Pay Value</label>
                 <input type="number" class="form-control" name="pay_value" id="pay_value">
             </div>
-            <div class="col-md-4 align-self-center">
+            <div class="col-md-4 calculate-btn-container">
                 <button type="button" id="calc_pay_interval" class="btn btn-primary ">Calculate Pay Interval</button>
             </div>
 
