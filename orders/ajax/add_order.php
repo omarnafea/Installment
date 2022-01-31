@@ -14,7 +14,7 @@ if($image['success'] !== true){
 
 $promissory_note = $image['image'];
 
-
+//add order to database
 $params = [
     ":creator_id"      => $_SESSION['user_id'],
     ":customer_id"     => $_POST['customer_id'],
@@ -29,12 +29,13 @@ $statment = $con->prepare("INSERT INTO orders
                 (creator_id , customer_id , pay_interval , pay_value , price , notes , promissory_note) 
                 VALUES (:creator_id , :customer_id , :pay_interval , :pay_value, :price, :notes , :promissory_note)");
 $order = $statment->execute($params);
-$order_id = $con->lastInsertId();
+$order_id = $con->lastInsertId();//to get last inserted order id(inserted now)
 
 //order id
 
 $products = json_decode($_POST['products'] , true);
 
+//add to orders products table
 foreach ($products as $order_product){
     $params = [
         ":order_id"     => $order_id,
@@ -53,6 +54,8 @@ foreach ($products as $order_product){
 }
 
 
+
+//set sponsors data
 $sponsor1_name = $_POST['sponsor1_name'];
 $sponsor2_name = $_POST['sponsor2_name'];
 $sponsor1_mobile = $_POST['sponsor1_mobile'];
@@ -94,14 +97,13 @@ if($sponsor2_contract['success'] !== true){
 $sponsor2_contract_image = $sponsor2_contract['image'];
 
 
-
+//insert sponsor data
 $params = [
     ":order_id"          => $order_id,
     ":sponsor_id_image"  => $sponsor1_id_image,
     ":sponsor_name"      => $sponsor1_name,
     ":sponsor_mobile"    => $sponsor1_mobile,
     ":sponsor_contract"  => $sponsor1_contract_image
-
 ];
 $statment = $con->prepare("INSERT INTO sponsors 
                 (order_id , sponsor_id_image , sponsor_name , sponsor_mobile , sponsor_contract) 

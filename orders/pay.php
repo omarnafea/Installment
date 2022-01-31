@@ -27,6 +27,12 @@ if(floatval($paid_amount) < floatval($order['pay_value']) * floor($diff_in_month
     $isLate = true;
 }
 
+$pay_value = $order['pay_value'];
+
+if(floatval($order['price']) - floatval($paid_amount) <= floatval($order['pay_value'])){
+    $pay_value = floatval($order['price']) - floatval($paid_amount);
+}
+
 $is_canceled = $order['status'] == 'CANCELED';
 $is_finished = $order['status'] == 'FINISHED';
 
@@ -90,8 +96,11 @@ if($is_canceled == false && $is_finished == false){?>
         <form id="pay_form" class="">
             <div class="form-group">
                 <label>Pay value</label>
-                <input type="number"  value="<?=$order['pay_value']?>"  class="form-control" name="amount" id="pay_value">
+                <input type="number"  value="<?=$pay_value?>"  class="form-control" disabled name="amount" id="pay_value">
             </div>
+
+            <input type="hidden"  value="<?=$pay_value?>"  class="form-control" name="amount" id="pay_value">
+
             <input type="hidden" name="order_id" value="<?=$_GET['order_id']?>">
             <div class="text-center">
                 <input type="submit" class="btn btn-primary submit-btn" value="Pay">

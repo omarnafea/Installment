@@ -15,9 +15,6 @@ $statement = $con->prepare($query);  // prepare query
 $statement->execute([$_POST['order_id']]);
 $order= $statement->fetch(PDO::FETCH_ASSOC);
 
-if(floatval($_POST['amount']) != $order['pay_value']){
-    die(json_encode(['success'=>false , 'message'=> 'Invalid amount'] ));
-}
 
 $statment = $con->prepare("INSERT INTO installments 
                 (cachier_id , order_id , amount) 
