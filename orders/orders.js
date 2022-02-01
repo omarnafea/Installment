@@ -67,12 +67,10 @@ $("#calc_pay_interval").click(function () {
 
              console.log('interval  after : ' , interval);
 
-             var days = (interval - Math.floor(interval)) * 30;
              var months= Math.floor(interval);
 
             var interval_text = months + " M " ;
-            if(days != 0)
-                interval_text += Math.round(days)  + " D";
+            
             $("#pay_interval").html(interval_text);
 
             $("#total_price").html(priceAfterRate+ ' JOD' );

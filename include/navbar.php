@@ -50,7 +50,6 @@ include "auth.php";
                         <?=$_SESSION['username'] ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="admin.php?page=change_password">change password</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="../logout.php">Logout</a>
                     </div>

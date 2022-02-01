@@ -28,6 +28,7 @@ $statement = $con->prepare($query);  // prepare query
 $statement->execute($params);
 $orders = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+//  print_r($orders);die;
 
 $query = "SELECT * FROM customers"; // db query
 $statement = $con->prepare($query);  // prepare query
@@ -101,23 +102,20 @@ $customers = $statement->fetchAll(PDO::FETCH_ASSOC);
               $isLate = false;
 
               $pay_interval = floatval($order['pay_interval']);
-              $days = ($pay_interval - floor($pay_interval))*30;
               $months = floor($pay_interval);
 
               $interval_text = $months . " M " ;
-              if($days != 0)
-                  $interval_text .= $days . " D";
-
+              
               if(floatval($paid_amount) < floatval($order['pay_value']) * floor($diff_in_month)){
                   $isLate = true;
                   //todo send SMS to this customer
               }
               ?>
-               <tr class="<?=$isLate ? 'bg-danger': ''?>" id="<?=$order['order_id']?>">
+               <tr class="<?=$isLate == true ? 'bg-danger': ''?>" id="<?=$order['order_id']?>">
                <td><?=$order['order_id']?></td>
                <td><?=$order['customer_name'] . ' / ' .$order['customer_mobile'] ?></td>
                <td><?=$order['creator_name']?></td>
-               <td><?=$order['status']?></td>
+               <td><?=$order['status']?></td> <!-- FINISHED-->
                <td><?=$paid_amount?> JOD</td>
                <td><?=$order['price']?> JOD</td>
                <td><?=$order['products_price']?> JOD</td>
