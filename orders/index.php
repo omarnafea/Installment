@@ -129,7 +129,10 @@ $customers = $statement->fetchAll(PDO::FETCH_ASSOC);
                        <button class="btn btn-danger cancel"><i class="fas fa-trash-alt"></i></button>
                    <?php } ?>
 
-                   <a href="pay.php?order_id=<?=$order['order_id']?>"  class="btn btn-success">PAY <i class="fas fa-cash-register"></i></a>
+                   <?php
+                   if( $order['status'] == "ACTIVE"){?>
+                      <a href="pay.php?order_id=<?=$order['order_id']?>"  class="btn btn-success">PAY <i class="fas fa-cash-register"></i></a>
+                   <?php } ?>
                </td>
               </tr>
           <?php }?>

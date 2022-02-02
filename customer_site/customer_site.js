@@ -128,22 +128,43 @@ $("#calc_pay_interval").click(function () {
             priceAfterRate = total_price + (total_price * profitRate);
             interval  = parseFloat(priceAfterRate / payValue) ;
 
-            console.log(total_price);
-            console.log(priceAfterRate);
-            console.log(interval);
 
-
-            var days = (interval - Math.floor(interval)) * 30;
-            var months= Math.floor(interval);
-
+            var months= Math.ceil(interval);
             var interval_text = months + " Months " ;
 
-            if(days != 0)
-                interval_text += Math.round(days)  + " Days";
-            $("#pay_interval").html(interval_text);
+            var schedule = [] , priceTmp = total_price + (total_price * profitRate);
+            let i = 1;
+            while(priceTmp !== 0) {
 
-            $("#total_price").html(priceAfterRate+ ' JOD' );
-            $(".hidden-input").removeClass('d-none');
+                let d = new Date();
+                d.setMonth(d.getMonth() + i);
+
+                let NextDayTemp = d;
+                i++;
+                let newSchedule = {};
+                let dateString = d.toDateString();
+
+                console.log(d.toLocaleDateString());
+                if (priceTmp < payValue) {
+                    newSchedule['date'] = dateString;
+                    newSchedule['amount'] = priceTmp.toFixed(2);;
+                    priceTmp = 0;
+                } else {
+                    newSchedule['date'] = dateString;
+                    newSchedule['amount'] = payValue.toFixed(2);;
+
+                    priceTmp -= payValue;
+                }
+
+                $("#schedule_table tbody").append(`
+                
+                   <tr>
+                         <td>${newSchedule.date}</td>
+                         <td>${newSchedule.amount} JOD</td>
+                         
+                   </tr>
+                `);
+            }
 
             Swal.fire({
                 icon: 'info',
@@ -151,8 +172,6 @@ $("#calc_pay_interval").click(function () {
                 text:  'You will pay ' + payValue + ' JD for ' + interval_text
             });
             return false;
-
-
         }
     });
 });

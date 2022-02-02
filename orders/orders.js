@@ -82,16 +82,15 @@ $("#calc_pay_interval").click(function () {
                 let NextDayTemp = d;
                 i++;
                 let newSchedule = {};
-                let dateString = d.toLocaleDateString();
-
+                let dateString = d.toDateString();
                 console.log(d.toLocaleDateString());
                 if(priceTmp < payValue){
                     newSchedule['date'] = dateString;
-                    newSchedule['amount'] = priceTmp;
+                    newSchedule['amount'] = priceTmp.toFixed(2);
                     priceTmp  = 0;
                 }else{
                     newSchedule['date'] = dateString;
-                    newSchedule['amount'] = payValue;
+                    newSchedule['amount'] = payValue.toFixed(2);
 
                     priceTmp   -= payValue;
                 }
@@ -100,7 +99,7 @@ $("#calc_pay_interval").click(function () {
                 
                    <tr>
                          <td>${newSchedule.date}</td>
-                         <td>${newSchedule.amount}</td>
+                         <td>${newSchedule.amount} JOD</td>
                          
                    </tr>
                 `);

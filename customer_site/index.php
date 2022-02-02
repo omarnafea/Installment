@@ -25,6 +25,17 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
             <button class="btn btn-success" id="calc_pay_interval" style="width: 100%;">
                 Calculate
             </button>
+
+            <table id="schedule_table" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Amount</th>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
         </div>
 
         <div class="col-md-10">

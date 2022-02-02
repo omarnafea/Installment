@@ -72,7 +72,8 @@ die;*/
         <div class="row">
             <div class="form-group col-md-4">
                 <label>Pay Value</label>
-                <input type="number" class="form-control" name="pay_value" id="pay_value">
+                <input type="number" class="form-control" name="pay_value" id="pay_value" min="1" step="1"
+                       onkeypress="return event.charCode >= 48 && event.charCode <= 57">
             </div>
             <div class="col-md-4 calculate-btn-container">
                 <button type="button" id="calc_pay_interval" class="btn btn-primary ">Calculate Pay Interval</button>
