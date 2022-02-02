@@ -57,28 +57,20 @@ $("#calc_pay_interval").click(function () {
         dataType : "json",
         success:function(data)
         {
-            var profitRate = parseFloat(data.profit_rate);
+            var profitRate = parseFloat(data.profit_rate); //convert the result to float
 
              priceAfterRate = total_price + (total_price * profitRate);
              interval  = parseFloat(priceAfterRate / payValue) ;
 
-             console.log('interval before  : ' , interval);
              interval = Math.ceil(interval);
 
-             console.log('interval  after : ' , interval);
 
-             var months= Math.floor(interval);
-
-            var interval_text = months + " M " ;
+            var interval_text = interval + " M " ;
             
             $("#pay_interval").html(interval_text);
 
             $("#total_price").html(priceAfterRate+ ' JOD' );
             $(".hidden-input").removeClass('d-none');
-
-            //todo after we get the profits we must display in a table the payment schedule
-            //17-02-2022 500
-            //17-03-2022 67
 
             var schedule = [] , priceTmp = total_price + (total_price * profitRate);
             let i = 1;

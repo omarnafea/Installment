@@ -7,7 +7,7 @@ $statement->execute([$_POST['pay_value']]);
 $pricing_model = $statement->fetch(PDO::FETCH_ASSOC);
 
 if($pricing_model == null){
-    $statement = $con->prepare("SELECT pricing_value as profit_rate FROM pricing_model WHERE  pricing_id = 0");  // prepare query
+    $statement = $con->prepare("SELECT pricing_value as profit_rate FROM pricing_model WHERE  min_pay_value = 0 AND max_pay_value = 0");  // prepare query
     $statement->execute();
     $pricing_model = $statement->fetch(PDO::FETCH_ASSOC);
 }

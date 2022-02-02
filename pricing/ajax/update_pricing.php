@@ -7,7 +7,7 @@ include "../../db_connect.php";
 
 // 1 20
 // 21 40
-//25 30
+// 25 30
 foreach ($_POST['pricing'] as $main_index => $main_pricing) {
 //    var_dump($main_index);
 //    var_dump($main_pricing);
@@ -22,6 +22,7 @@ foreach ($_POST['pricing'] as $main_index => $main_pricing) {
         die(json_encode(['success' => false, 'message' => 'Min pay value and max pay value must be not equal']));
     }
 
+    //check overlap 
     foreach ($_POST['pricing'] as $check_index => $check_pricing) {
 
         if ($check_index == $main_index) continue;

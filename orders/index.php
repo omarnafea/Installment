@@ -55,7 +55,6 @@ $customers = $statement->fetchAll(PDO::FETCH_ASSOC);
     <div class="row">
         <div class="col-md-4">
             <a href="add_order.php" class="btn btn-primary mb-2">Add New order</a>
-
         </div>
         <div class="form-group col-md-4">
             <select class="form-control" name="customers" id="filter_customer">
@@ -126,7 +125,7 @@ $customers = $statement->fetchAll(PDO::FETCH_ASSOC);
                <td><?=$order['creation_date']?></td>
                <td>
                    <?php
-                   if(isAdmin() == true){?>
+                   if(isAdmin() == true && $order['status'] == "ACTIVE"){?>
                        <button class="btn btn-danger cancel"><i class="fas fa-trash-alt"></i></button>
                    <?php } ?>
 
